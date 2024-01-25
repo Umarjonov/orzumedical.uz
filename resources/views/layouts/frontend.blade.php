@@ -3,13 +3,12 @@
 
 <head>
     <meta charset="utf-8">
-    <title>EShopper - Bootstrap Shop Template</title>
+    <title>{{ config('app.name', 'Xitoy Savdo Markazi') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+{{--    <meta content="Free HTML Templates" name="keywords">--}}
+{{--    <meta content="Free HTML Templates" name="description">--}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Xitoy Savdo Markazi') }}</title>
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
@@ -23,8 +22,22 @@
 </head>
 
 <body>
+@include('layouts.main.topbar')
 
+<!-- Navbar Start -->
+<div class="container-fluid mb-5">
+    <div class="row border-top px-xl-5">
+        @include('layouts.main.categories')
+        <div class="col-lg-9">
+            @include('layouts.main.navbar')
+            @include('layouts.main.header_carousel')
+        </div>
+    </div>
+</div>
+<!-- Navbar End -->
 @yield('content')
+
+@include('layouts.main.footer')
 
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
