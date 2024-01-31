@@ -26,14 +26,9 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\ProfileRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileRequest $request)
+    public function update(Request $request)
     {
-        if (auth()->user()->id == 1) {
-            return back()->withErrors(['not_allow_profile' => __('You are not allowed to change data for a default user.')]);
-        }
-
-        auth()->user()->update($request->all());
-
+        auth()->user()->update($request->only('name'));
         return back()->withStatus(__('Profile successfully updated.'));
     }
 

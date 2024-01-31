@@ -7,7 +7,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <h3><b>Trucks.uz</b></h3>
+            <h3><b>Xitoy Savdo Markazi</b></h3>
         </a>
         <div class="dropdown justify-content-center d-md-none">
             <a href="#" class="btn btn-default dropdown-toggle p-1" data-toggle="dropdown" id="navbarDropdownMenuLink2">
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            Trucks.uz
+                            Xitoy Savdo Markazi
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -106,7 +106,22 @@
                         <i class="ni ni-tv-2 text-primary"></i> @lang('global.home')
                     </a>
                 </li>
-
+                @can('catalog.index')
+                    <li class="nav-item">
+                        <a class="nav-link {{ (Request::is('catalog*')) ? 'active':''}}" href="{{ route('catalog.index') }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <span class="nav-link-text">Каталог</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('brand.index')
+                    <li class="nav-item">
+                        <a class="nav-link {{ (Request::is('brand*')) ? 'active':''}}" href="{{ route('brand.index') }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <span class="nav-link-text">Бренд</span>
+                        </a>
+                    </li>
+                @endcan
                 @canany([
                     'permission.show',
                     'roles.show',

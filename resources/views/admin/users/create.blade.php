@@ -68,69 +68,6 @@
                                     <span class="error invalid-feedback">{{ $errors->first('phone') }}</span>
                                 @endif
                             </div>
-                            <label for="company_id">Company</label>
-                            <div class="form-group {{ $errors->has('company_id') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative mb-3">
-                                    <select class="form-control{{ $errors->has('company_id') ? ' is-invalid' : '' }}" name="company_id" data-placeholder="@lang('pleaseSelect')" style="width: 100%;" required>
-                                        @foreach( $companies as $comp)
-                                            <option value="{{ $comp->id }}">{{ $comp->id.'-'.$comp->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @if ($errors->has('company_id'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                      <strong>{{ $errors->first('company_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="branch_id">Branch</label>
-                            <div class="form-group {{ $errors->has('branch_id') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative mb-3">
-                                    <select class="form-control{{ $errors->has('branch_id') ? ' is-invalid' : '' }}" name="branch_id" data-placeholder="@lang('pleaseSelect')" style="width: 100%;" required>
-                                        @foreach( $companies as $comp)
-                                            @foreach( $comp->branch as $br)
-                                                <option value="{{ $br->id }}">{{ $br->id.'-'.$br->name }}</option>
-                                            @endforeach
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @if ($errors->has('branch_id'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                      <strong>{{ $errors->first('branch_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="division_id">Division</label>
-                            <div class="form-group {{ $errors->has('division_id') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative mb-3">
-                                    <select class="form-control{{ $errors->has('division_id') ? ' is-invalid' : '' }}" name="division_id" data-placeholder="@lang('pleaseSelect')" style="width: 100%;" required>
-                                        @foreach( $divisions as $division)
-                                            <option value="{{ $division->id }}">{{ $division->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @if ($errors->has('division_id'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                      <strong>{{ $errors->first('division_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            <label for="position_id">Position</label>
-                            <div class="form-group {{ $errors->has('position_id') ? ' has-danger' : '' }}">
-                                <div class="input-group input-group-alternative mb-3">
-                                    <select class="form-control{{ $errors->has('position_id') ? ' is-invalid' : '' }}" name="position_id" data-placeholder="@lang('pleaseSelect')" style="width: 100%;" required>
-                                        @foreach( $positions as $position)
-                                            <option value="{{ $position->id }}">{{ $position->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @if ($errors->has('position_id'))
-                                    <span class="invalid-feedback" style="display: block;" role="alert">
-                                      <strong>{{ $errors->first('position_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
                             <div class="form-group">
                                 <label>@lang('cruds.role.fields.roles')</label>
                                 <select class="select2" multiple="multiple" name="roles[]" required

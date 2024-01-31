@@ -2,10 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Organization\Company;
-use App\Models\Organization\Branch;
-use App\Models\Organization\Position;
-use App\Models\Organization\Division;
 use App\Models\User;
 use App\Http\Requests\UserRequest;
 use App\Rules\CurrentPasswordCheckRule;
@@ -28,11 +24,7 @@ class UserController extends Controller
     {
         abort_if(!auth()->user()->can('user.index'),403);
         $users = User::all();
-        $companies = Company::pluck('name','id')->all();
-        $branches = Branch::pluck('name','id')->all();
-        $divisions = Division::pluck('name','id')->all();
-        $positions = Position::pluck('name','id')->all();
-        return view('admin.users.index',compact('users','companies','branches','divisions','positions'));
+        return view('admin.users.index',compact('users'));
     }
 
     // user create page

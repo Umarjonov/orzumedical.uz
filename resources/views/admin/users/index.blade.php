@@ -56,10 +56,6 @@
                                 <th>@lang('cruds.user.fields.name')</th>
 {{--                                <th>Phone</th>--}}
                                 <th>@lang('cruds.user.fields.roles')</th>
-                                <th>Компания</th>
-                                <th>Филиалы</th>
-                                <th>Отдел</th>
-                                <th>Должность</th>
                                 <th>@lang('global.actions')</th>
                             </tr>
                             </thead>
@@ -69,10 +65,6 @@
                                 <th>@lang('cruds.user.fields.name')</th>
 {{--                                <th>Phone</th>--}}
                                 <th>@lang('cruds.user.fields.roles')</th>
-                                <th>Компания</th>
-                                <th>Филиалы</th>
-                                <th>Отдел</th>
-                                <th>Должность</th>
                                 <th>@lang('global.actions')</th>
                             </tr>
                             </tfoot>
@@ -96,10 +88,6 @@
                                             <span class="badge bg-success">{{ $role->name }}</span>
                                         @endforeach
                                     </td>
-                                    <td>{{ $user->company_id?$companies[$user->company_id]:'admin' }}</td>
-                                    <td>{{ $user->branch_id?$branches[$user->branch_id]:'admin' }}</td>
-                                    <td>{{ $user->division_id?$divisions[$user->division_id]:'admin' }}</td>
-                                    <td>{{ $user->position_id?$positions[$user->position_id]:'admin' }}</td>
                                     <td class="table-actions text-center">
                                         @can('user.destroy')
                                             <form action="{{ route('user.destroy', $user->id) }}" method="post">

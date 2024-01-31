@@ -49,6 +49,10 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::get('map', function () {return view('pages.maps');})->name('map');
 	 Route::get('icons', function () {return view('pages.icons');})->name('icons');
 	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
+     Route::resource('catalog', 'App\Http\Controllers\Blade\CatalogController');
+     Route::resource('brand', 'App\Http\Controllers\Blade\BrandController');
+
+     Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
 });
 
 // Change language session condition

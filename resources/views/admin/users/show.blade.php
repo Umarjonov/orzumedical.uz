@@ -14,7 +14,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="#">
-                                    <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                    <img src="{{ asset('uploads/avatar/'.auth()->user()->image) }}" class="rounded-circle">
                                 </a>
                             </div>
                         </div>
@@ -72,10 +72,8 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('user.update',auth()->id()) }}" autocomplete="off">
+                        <form method="post" action="{{ route('profile.update') }}" autocomplete="off">
                             @csrf
-                            @method('put')
-
                             <h6 class="heading-small text-muted mb-4">{{ __('User information') }}</h6>
 
                             <div class="pl-lg-4">
@@ -86,16 +84,6 @@
                                     @if ($errors->has('name'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                                <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">@lang('global.login_email')</label>
-                                    <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" value="{{ old('email', auth()->user()->email) }}" required>
-
-                                    @if ($errors->has('email'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
                                 </div>
