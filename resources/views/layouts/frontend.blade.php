@@ -5,15 +5,16 @@
     <meta charset="utf-8">
     <title>{{ config('app.name', 'Xitoy Savdo Markazi') }}</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-{{--    <meta content="Free HTML Templates" name="keywords">--}}
-{{--    <meta content="Free HTML Templates" name="description">--}}
+    {{--    <meta content="Free HTML Templates" name="keywords">--}}
+    {{--    <meta content="Free HTML Templates" name="description">--}}
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Favicon -->
     <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
     <!-- Icons -->
     <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <!-- Libraries Stylesheet -->
@@ -30,7 +31,9 @@
         @include('layouts.main.categories')
         <div class="col-lg-9">
             @include('layouts.main.navbar')
-            @include('layouts.main.header_carousel')
+            @if(Route::currentRouteName()=='welcome')
+                @include('layouts.components.header_carousel', ['carousels' => $carousels])
+            @endif
         </div>
     </div>
 </div>
@@ -49,11 +52,11 @@
 @if(session('_message'))
     <script>
         Swal.fire({
-        position: 'top-end',
-        type: "{{ session('_type') }}",
-        title: "{{ session('_message') }}",
-        showConfirmButton: false,
-        timer: {{session('_timer') ?? 5000}}
+            position: 'top-end',
+            type: "{{ session('_type') }}",
+            title: "{{ session('_message') }}",
+            showConfirmButton: false,
+            timer: {{session('_timer') ?? 5000}}
         });
     </script>
     @php(message_clear())

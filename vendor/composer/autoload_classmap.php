@@ -48,6 +48,7 @@ return array(
     'App\\Http\\Requests\\UpdateUserRequest' => $baseDir . '/app/Http/Requests/UpdateUserRequest.php',
     'App\\Http\\Requests\\UserRequest' => $baseDir . '/app/Http/Requests/UserRequest.php',
     'App\\Models\\Blade\\Brand' => $baseDir . '/app/Models/Blade/Brand.php',
+    'App\\Models\\Blade\\Carousel' => $baseDir . '/app/Models/Blade/Carousel.php',
     'App\\Models\\Blade\\Catalog' => $baseDir . '/app/Models/Blade/Catalog.php',
     'App\\Models\\Language' => $baseDir . '/app/Models/Language.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

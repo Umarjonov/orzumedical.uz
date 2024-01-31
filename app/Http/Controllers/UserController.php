@@ -36,10 +36,7 @@ class UserController extends Controller
         else
             $roles = Role::where('name','!=','Super Admin')->get();
 
-        $companies = Company::with('branch')->get();
-        $divisions = Division::all();
-        $positions = Position::all();
-        return view('admin.users.create',compact('roles','companies','divisions','positions'));
+        return view('admin.users.create',compact('roles'));
     }
 
     // user create
@@ -97,10 +94,7 @@ class UserController extends Controller
         else
             $roles = Role::where('name','!=','Super Admin')->get();
 
-        $companies = Company::with('branch')->get();
-        $divisions = Division::all();
-        $positions = Position::all();
-        return view('admin.users.edit',compact('user','roles','companies','divisions','positions'));
+        return view('admin.users.edit',compact('user','roles'));
     }
 
     // update user dates

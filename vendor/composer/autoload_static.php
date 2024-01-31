@@ -822,6 +822,7 @@ class ComposerStaticInit133be1350552027261fcf055c03c7c84
         'App\\Http\\Requests\\UpdateUserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateUserRequest.php',
         'App\\Http\\Requests\\UserRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UserRequest.php',
         'App\\Models\\Blade\\Brand' => __DIR__ . '/../..' . '/app/Models/Blade/Brand.php',
+        'App\\Models\\Blade\\Carousel' => __DIR__ . '/../..' . '/app/Models/Blade/Carousel.php',
         'App\\Models\\Blade\\Catalog' => __DIR__ . '/../..' . '/app/Models/Blade/Catalog.php',
         'App\\Models\\Language' => __DIR__ . '/../..' . '/app/Models/Language.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

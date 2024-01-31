@@ -14,14 +14,11 @@ use App\Http\Controllers\Auth\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\MainController::class, 'welcome'])->name('welcome');
+Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
-Route::group(['middleware' => ['guest']], function() {
+Route::group(['middleware' => ['guest'],'prefix'=>'admin'], function() {
     Route::get('login',[AuthController::class,'loginIndex'])->name('login');
     Route::post('auth/login',[AuthController::class,'login2'])->name('login2');
     Route::get('auth/forget', [AuthController::class,'forget'])->name('auth.forget');
@@ -32,7 +29,7 @@ Route::group(['middleware' => ['guest']], function() {
     Route::post('auth/set/password', [AuthController::class,'setPasswordPost'])->name('auth.set.password.post');
 
 });
-Route::group(['namespace' => 'App\Http\Controllers'], function()
+Route::group(['namespace' => 'App\Http\Controllers','prefix'=>'admin'], function()
 {
     Route::group(['middleware' => ['auth', 'permission']], function() {
         Route::resource('roles', RolesController::class);
@@ -40,7 +37,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     });
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
     Route::post('logout',[AuthController::class,'logout'])->name('logout');
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('profile',[App\Http\Controllers\UserController::class,'profileShow'])->name('profile.edit');
@@ -51,6 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
 	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
      Route::resource('catalog', 'App\Http\Controllers\Blade\CatalogController');
      Route::resource('brand', 'App\Http\Controllers\Blade\BrandController');
+     Route::resource('carousel', 'App\Http\Controllers\Blade\CarouselController');
 
      Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
 });

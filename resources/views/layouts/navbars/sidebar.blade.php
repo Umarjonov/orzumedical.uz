@@ -122,6 +122,14 @@
                         </a>
                     </li>
                 @endcan
+                @can('carousel.index')
+                    <li class="nav-item">
+                        <a class="nav-link {{ (Request::is('carousel*')) ? 'active':''}}" href="{{ route('carousel.index') }}">
+                            <i class="nav-icon fas fa-book"></i>
+                            <span class="nav-link-text">Карусель</span>
+                        </a>
+                    </li>
+                @endcan
                 @canany([
                     'permission.show',
                     'roles.show',
