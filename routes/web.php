@@ -27,7 +27,6 @@ Route::group(['middleware' => ['guest'],'prefix'=>'admin'], function() {
     Route::post('auth/forget/check', [AuthController::class,'forgetCheckPost'])->name('auth.forget.check.post');
     Route::get('auth/set/password', [AuthController::class,'setPassword'])->name('auth.set.password');
     Route::post('auth/set/password', [AuthController::class,'setPasswordPost'])->name('auth.set.password.post');
-
 });
 Route::group(['namespace' => 'App\Http\Controllers','prefix'=>'admin'], function()
 {
@@ -49,8 +48,10 @@ Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
      Route::resource('catalog', 'App\Http\Controllers\Blade\CatalogController');
      Route::resource('brand', 'App\Http\Controllers\Blade\BrandController');
      Route::resource('carousel', 'App\Http\Controllers\Blade\CarouselController');
+     Route::resource('product', 'App\Http\Controllers\Blade\ProductController');
 
      Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
+    Route::post('product/index',[App\Http\Controllers\Blade\ProductController::class,'indexApi']);
 });
 
 // Change language session condition

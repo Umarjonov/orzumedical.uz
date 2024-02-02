@@ -11,7 +11,7 @@
         <!-- Favicon -->
         <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+        <link href="{{ asset('argon/css/fonts.googleapis.css') }}" rel="stylesheet">
         <!-- Extra details for Live View on GitHub Pages -->
 
         <!-- Icons -->
@@ -19,12 +19,37 @@
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
-{{--        <link href="{{asset('assets/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">--}}
 
         <style>
             .flag-icon{
                 max-height: 20px;
                 max-width: 20px;
+            }
+            .modal_loading {
+                display:    none;
+                position:   fixed;
+                z-index:    1000;
+                top:        0;
+                left:       0;
+                height:     100%;
+                width:      100%;
+                background: rgba( 255, 255, 255, .8 )
+                url({{asset('uploads/FhHRx.gif')}})
+                50% 50%
+                no-repeat;
+            }
+            body{
+            /*   bg gray 100*/
+                background-color: #e9ecef !important;
+            }
+            body.loading .modal_loading {
+                overflow: hidden;
+            }
+
+            /* Anytime the body has the loading class, our
+               modal element will be visible */
+            body.loading .modal_loading {
+                display: block;
             }
         </style>
         @yield('head')
@@ -38,6 +63,7 @@
         @endauth
 
         <div class="main-content">
+            <div class="modal_loading"><!-- Place at bottom of page --></div>
             @include('layouts.navbars.navbar')
             @yield('content')
         </div>
@@ -45,7 +71,6 @@
         @guest()
             @include('layouts.footers.guest')
         @endguest
-
         <script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
         <script src="{{ asset('argon') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 

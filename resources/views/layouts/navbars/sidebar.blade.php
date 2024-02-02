@@ -109,7 +109,7 @@
                 @can('catalog.index')
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::is('catalog*')) ? 'active':''}}" href="{{ route('catalog.index') }}">
-                            <i class="nav-icon fas fa-book"></i>
+                            <i class="nav-icon fas fa-clipboard"></i>
                             <span class="nav-link-text">Каталог</span>
                         </a>
                     </li>
@@ -117,7 +117,7 @@
                 @can('brand.index')
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::is('brand*')) ? 'active':''}}" href="{{ route('brand.index') }}">
-                            <i class="nav-icon fas fa-book"></i>
+                            <i class="nav-icon fas fa-copyright"></i>
                             <span class="nav-link-text">Бренд</span>
                         </a>
                     </li>
@@ -125,8 +125,16 @@
                 @can('carousel.index')
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::is('carousel*')) ? 'active':''}}" href="{{ route('carousel.index') }}">
-                            <i class="nav-icon fas fa-book"></i>
+                            <i class="nav-icon fas fa-images"></i>
                             <span class="nav-link-text">Карусель</span>
+                        </a>
+                    </li>
+                @endcan
+                @can('product.index')
+                    <li class="nav-item">
+                        <a class="nav-link {{ (Request::is('product*')) ? 'active':''}}" href="{{ route('product.index') }}">
+                            <i class="nav-icon fas fa-folder-plus"></i>
+                            <span class="nav-link-text">Товар</span>
                         </a>
                     </li>
                 @endcan
@@ -135,7 +143,6 @@
                     'roles.show',
                     'user.show'
                 ])
-
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::is('permission*') || Request::is('role*') || Request::is('user*')) ? 'active':''}}" href="#navbar-examples" data-toggle="collapse" role="button"
                            aria-expanded="true" aria-controls="navbar-examples">
