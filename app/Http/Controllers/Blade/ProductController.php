@@ -41,6 +41,7 @@ class ProductController extends Controller
         }
         $data = $request->only('name',"title","articul","weight","price","count","currency",'catalog_id','brand_id',"description","information","seo_title","seo_keywords","seo_description","telegram","facebook","instagram");
         $data['user_id'] = auth()->user()->id;
+        $data['gallery'] = `["default-product-image.png"]`;
         $product = Product::create($data);
         if($request->has('gallery')){
             $month = date('M-Y');
