@@ -2,8 +2,8 @@
 <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
     <div class="row px-xl-5 pt-5">
         <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-            <a href="" class="text-decoration-none d-flex">
-                <svg width="60" height="60" viewBox="0 0 312.5 308.642" class="looka-1j8o68f" style="background:#202020;box-shadow:none;border-radius:50%">
+            <a href="" class="text-decoration-none d-flex pb-2">
+                <svg width="80" height="80" viewBox="0 0 312.5 308.642" class="looka-1j8o68f" style="background:#202020;box-shadow:none;border-radius:50%">
                     <defs>
                         <linearGradient id="a">
                             <stop stop-color="#905e26" offset="0"/>
@@ -37,11 +37,11 @@
             <p>Biz hitoy bilan to'g'ridan to'g'ri vositachilarsiz mahsulotlarni olib kirib sotamiz. Bizdan buyurtma asosida ham hitoydan mahsulot buyurtirishingiz munkin.</p>
             <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>O'zbekirston,Toshkent viloyati, Qatortol KFY,Kichkina qani ko'chasi, 84-uy</p>
             <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@xitoysavdomarkazi.uz</p>
-            <p class="mb-0"><i class="fa fa-phone text-primary mr-3"></i>+998 97 139 18 88</p>
+            <p class="mb-0"><i class="fa fa-phone text-primary mr-3"></i>+998(97)139-18-88</p>
         </div>
         <div class="col-lg-8 col-md-12">
             <div class="row">
-                <div class="col-md- col-md-4 mb-5">
+                <div class="col-md-5 offset-md-2 mb-5">
                     <h5 class="font-weight-bold text-dark mb-4">Menyu</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-dark mb-2" href="/"><i class="fa fa-angle-right mr-2"></i>Asosiy sahifa</a>
@@ -50,7 +50,7 @@
                         <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Bizga bog'lanish</a>
                     </div>
                 </div>
-                <div class="col-md-4 mb-5">
+                <div class="col-md-5 mb-5">
                     <h5 class="font-weight-bold text-dark mb-4">Katalog</h5>
                     <div class="d-flex flex-column justify-content-start">
                         @foreach($catalogs as $catalog)

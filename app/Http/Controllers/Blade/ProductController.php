@@ -13,9 +13,19 @@ class ProductController extends Controller
 {
     public function indexApi()
     {
-//        abort_if_api('product.index');
+        abort_if_api('product.index');
         $products = Product::with('catalog:id,name','user:id,name')->latest()->paginate(20);
         return self::good('product.index',$products);
+    }
+
+    public function details($id)
+    {
+        abort_if_forbidden('product.details');
+        $catalogs = Catalog::where(['is_active'=>1,'parent_id'=>0])->with('child')->get();
+        $brands = Brand::where(['is_active'=>1])->limit(10)->get();
+        $product = Product::where('id',$id)->first();
+        $products = Product::where(['is_active'=>1])->latest()->limit(10)->get();
+        return view('frontend.product.details',compact('catalogs','brands','product','products'));
     }
     public function index()
     {

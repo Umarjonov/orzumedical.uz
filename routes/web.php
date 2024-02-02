@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'welcome'])->name('welcome');
+Route::get('product/{id}/details', [App\Http\Controllers\Blade\ProductController::class, 'details'])->name('product.details');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
