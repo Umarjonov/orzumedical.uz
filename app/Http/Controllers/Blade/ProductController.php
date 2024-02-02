@@ -99,7 +99,7 @@ class ProductController extends Controller
         abort_if_forbidden('product.delete');
         $gallery = json_decode($product->gallery);
         foreach ($gallery as $image){
-            if (file_exists(public_path('uploads/products/'.$image))){
+            if (file_exists(public_path('uploads/products/'.$image)) && $image !== 'default-product-image.png'){
                 unlink(public_path('uploads/products/'.$image));
             }
         }
