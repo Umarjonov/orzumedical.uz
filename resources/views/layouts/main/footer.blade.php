@@ -1,5 +1,5 @@
 <!-- Footer Start -->
-<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+<div class="container-fluid bg-secondary text-dark mt-5 pt-1">
     <div class="row px-xl-5 pt-5">
         <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
             <a href="" class="text-decoration-none d-flex pb-2">
@@ -45,9 +45,9 @@
                     <h5 class="font-weight-bold text-dark mb-4">Menyu</h5>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-dark mb-2" href="/"><i class="fa fa-angle-right mr-2"></i>Asosiy sahifa</a>
-                        <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Mahsulotlarimiz</a>
+                        <a class="text-dark mb-2" href="{{route('shop')}}"><i class="fa fa-angle-right mr-2"></i>Mahsulotlarimiz</a>
                         <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Xitoydan uskunlar keltirib berish xizmati</a>
-                        <a class="text-dark mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Bizga bog'lanish</a>
+                        <a class="text-dark mb-2" href="{{route('contact')}}"><i class="fa fa-angle-right mr-2"></i>Bizga bog'lanish</a>
                     </div>
                 </div>
                 <div class="col-md-5 mb-5">

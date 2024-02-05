@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-    <a href="" class="d-lg-none d-flex text-decoration-none">
+    <a href="/" class="d-lg-none d-flex text-decoration-none">
         <svg width="60" height="60" viewBox="0 0 312.5 308.642" class="looka-1j8o68f" style="background:#202020;box-shadow:none;border-radius:50%">
             <defs>
                 <linearGradient id="a">
@@ -34,7 +34,7 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav mr-auto py-0">
             <a href="/" class="nav-item nav-link active">Asosiy sahifa</a>
-            <a href="" class="nav-item nav-link">Mahsulotlarimiz</a>
+            <a href="{{route('shop')}}" class="nav-item nav-link">Mahsulotlarimiz</a>
             <a href="" class="nav-item nav-link">Xitoydan uskunlar keltirib berish xizmati</a>
 {{--            <div class="nav-item dropdown">--}}
 {{--                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>--}}
@@ -43,7 +43,7 @@
 {{--                    <a href="" class="dropdown-item">Checkout</a>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <a href="" class="nav-item nav-link">Bizga bog'lanish</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link">Bizga bog'lanish</a>
         </div>
 {{--        <div class="navbar-nav ml-auto py-0">--}}
 {{--            <a href="" class="nav-item nav-link">Login</a>--}}

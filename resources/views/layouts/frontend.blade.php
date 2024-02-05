@@ -22,6 +22,11 @@
     <link href="{{ asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     @yield('head')
+    <style>
+        .higher-z-index {
+            z-index: 10;
+        }
+    </style>
 </head>
 
 <body>

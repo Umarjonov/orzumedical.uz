@@ -3,8 +3,8 @@
 @section('head')
     <style>
         #brands_img {
-            width: 100% !important;
-            height: 200px !important;
+            width: 160px !important;
+            height: 160px !important;
             object-fit: contain !important;
             border: 1px solid #D19C97 !important;
             border-radius: 50% !important;
