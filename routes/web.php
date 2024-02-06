@@ -18,6 +18,8 @@ Route::get('/', [App\Http\Controllers\MainController::class, 'welcome'])->name('
 Route::get('product/{id}/details', [App\Http\Controllers\Blade\ProductController::class, 'details'])->name('product.details');
 Route::get('contact', [App\Http\Controllers\MainController::class, 'contact'])->name('contact');
 Route::get('shop', [App\Http\Controllers\MainController::class, 'shop'])->name('shop');
+Route::post('shop', [App\Http\Controllers\MainController::class, 'shopPost'])->name('shop.post');
+Route::get('shop/{id}/catalog', [App\Http\Controllers\MainController::class, 'shopCatalog'])->name('shop.catalog');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 

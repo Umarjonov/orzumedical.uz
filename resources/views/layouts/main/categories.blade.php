@@ -9,14 +9,14 @@
             @foreach($catalogs as $catalog)
                 <div class="nav-item dropdown">
                     @if(!empty($catalog->child[0]))
-                        <a href="#" class="nav-link" data-toggle="dropdown">{{$catalog->name}}<i class="fa fa-angle-down float-right mt-1"></i> </a>
+                        <a href="{{route('shop.catalog',$catalog->id)}}" class="nav-link" data-toggle="dropdown">{{$catalog->name}}<i class="fa fa-angle-down float-right mt-1"></i> </a>
                         <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0">
                             @foreach($catalog->child as $child)
                                 <a href="#" class="dropdown-item">{{$child->name}}</a>
                             @endforeach
                         </div>
                     @else
-                        <a href="#" class="nav-item nav-link">{{$catalog->name}}</a>
+                        <a href="{{route('shop.catalog',$catalog->id)}}" class="nav-item nav-link">{{$catalog->name}}</a>
                     @endif
                 </div>
             @endforeach

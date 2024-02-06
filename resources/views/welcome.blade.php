@@ -73,7 +73,7 @@
         @foreach($products as $product)
             @php($gallery = json_decode($product->gallery))
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card product-item border-0 mb-4 h-100">
+                <div class="card product-item border-0 border-hover mb-4 h-100">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="{{asset('uploads/products/'.$gallery[0])}}" alt="{{$product->name}}" style="height: 350px;object-fit: contain">
                     </div>
@@ -102,7 +102,7 @@
         @foreach($products as $product)
             @php($gallery = json_decode($product->gallery))
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card product-item border-0 mb-4 h-100">
+                <div class="card product-item border-0 border-hover mb-4 h-100">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="{{asset('uploads/products/'.$gallery[0])}}" alt="{{$product->name}}" style="height: 350px;object-fit: contain">
                     </div>

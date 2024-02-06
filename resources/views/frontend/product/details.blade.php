@@ -92,7 +92,7 @@
                 <div class="owl-carousel related-carousel">
                     @foreach($products as $prd)
                         @php($images = json_decode($prd->gallery))
-                        <div class="card product-item border-0">
+                        <div class="card product-item border-0 border-hover">
                             <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                                 <img class="img-fluid w-100" src="{{asset('uploads/products/'.$images[0])}}" alt="{{$prd->name}}" style="height: 350px;object-fit: contain">
                             </div>

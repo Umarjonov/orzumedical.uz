@@ -33,8 +33,8 @@
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
         <div class="navbar-nav mr-auto py-0">
-            <a href="/" class="nav-item nav-link active">Asosiy sahifa</a>
-            <a href="{{route('shop')}}" class="nav-item nav-link">Mahsulotlarimiz</a>
+            <a href="/" class="nav-item nav-link {{ Request::is('/') ? "active":'' }}">Asosiy sahifa</a>
+            <a href="{{route('shop')}}" class="nav-item nav-link {{ Request::is('shop*') ? "active":'' }}">Mahsulotlarimiz</a>
             <a href="" class="nav-item nav-link">Xitoydan uskunlar keltirib berish xizmati</a>
 {{--            <div class="nav-item dropdown">--}}
 {{--                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>--}}
@@ -43,7 +43,7 @@
 {{--                    <a href="" class="dropdown-item">Checkout</a>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <a href="{{route('contact')}}" class="nav-item nav-link">Bizga bog'lanish</a>
+            <a href="{{route('contact')}}" class="nav-item nav-link {{ Request::is('contact*') ? "active":'' }}">Bizga bog'lanish</a>
         </div>
 {{--        <div class="navbar-nav ml-auto py-0">--}}
 {{--            <a href="" class="nav-item nav-link">Login</a>--}}
