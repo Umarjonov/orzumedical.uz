@@ -26,6 +26,31 @@
         .higher-z-index {
             z-index: 10;
         }
+
+        .search-container {
+            position: relative;
+        }
+
+        #searchResults {
+            position: absolute;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            display: none;
+        }
+
+        #searchResults a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #searchResults a:hover {
+            background-color: #ddd;
+        }
     </style>
 </head>
 
@@ -78,6 +103,72 @@
 
 <!-- Template Javascript -->
 <script src="{{asset('assets/js/main.js') }}"></script>
+<script>
+    // const searchInput = $('#searchInput');
+    const searchResults = $('#searchResults');
+    // searchInput on keyup
+    $("#searchInput").on('keyup', function () {
+        const searchTerm = $(this).val();
+        console.log(searchTerm);
+        // Simulating AJAX request (replace this with your actual AJAX logic)
+        // For example, you might use fetch() or XMLHttpRequest to get search results from the server
+        const fakeSearchResults = [
+            'Product 1',
+            'Product 2',
+            'Product 3',
+            // Add more results as needed
+        ];
+        // Clear previous results
+        searchResults.html('');
+        // Display results
+        fakeSearchResults.forEach(result => {
+            if (result.toLowerCase().includes(searchTerm.toLowerCase())) {
+                const resultItem = $('<a>');
+                resultItem.attr('href', '#');
+                resultItem.text(result);
+                searchResults.append(resultItem);
+            }
+        });
+        // Show/hide the results container based on whether there are results
+        searchResults.css('display', fakeSearchResults.some(result => result.toLowerCase().includes(searchTerm.toLowerCase())) ? 'block' : 'none');
+    });
+    // searchInput.addEventListener('input', function() {
+    //     const searchTerm = this.value;
+    //
+    //     // Simulating AJAX request (replace this with your actual AJAX logic)
+    //     // For example, you might use fetch() or XMLHttpRequest to get search results from the server
+    //     const fakeSearchResults = [
+    //         'Product 1',
+    //         'Product 2',
+    //         'Product 3',
+    //         // Add more results as needed
+    //     ];
+    //
+    //     // Clear previous results
+    //     searchResults.innerHTML = '';
+    //
+    //     // Display results
+    //     fakeSearchResults.forEach(result => {
+    //         if (result.toLowerCase().includes(searchTerm.toLowerCase())) {
+    //             const resultItem = document.createElement('a');
+    //             resultItem.href = '#';  // Set the actual URL for the product
+    //             resultItem.textContent = result;
+    //             searchResults.appendChild(resultItem);
+    //         }
+    //     });
+    //
+    //     // Show/hide the results container based on whether there are results
+    //     searchResults.style.display = fakeSearchResults.some(result => result.toLowerCase().includes(searchTerm.toLowerCase())) ? 'block' : 'none';
+    // });
+    //
+    // // Close the results container when clicking outside of it
+    // document.addEventListener('click', function(event) {
+    //     if (!event.target.closest('.search-container')) {
+    //         searchResults.style.display = 'none';
+    //     }
+    // });
+
+</script>
 </body>
 
 </html>

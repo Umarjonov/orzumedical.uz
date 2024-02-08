@@ -61,14 +61,16 @@
             </div>
         </a>
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Mahsulot bo'yicha qidiruv">
+            <form action="{{ route('shop.post') }}" method="post">
+                @csrf
+                <div class="input-group search-container">
+                    <input type="text" id="searchInput" name="search" class="form-control" placeholder="Mahsulot bo'yicha qidiruv">
                     <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <i class="fa fa-search"></i>
                             </span>
                     </div>
+                    <div class="search-results" id="searchResults"></div>
                 </div>
             </form>
         </div>
