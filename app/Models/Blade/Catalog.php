@@ -14,4 +14,9 @@ class Catalog extends Model
     {
         return $this->hasMany(Catalog::class,'parent_id','id')->where('is_active',1);
     }
+
+    public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Product::class,'id','catalog_id')->where('is_active',1);
+    }
 }

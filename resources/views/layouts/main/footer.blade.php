@@ -34,7 +34,7 @@
                     XITOY SAVDO MARKAZI
                 </div>
             </a>
-            <p>Biz hitoy bilan to'g'ridan to'g'ri vositachilarsiz mahsulotlarni olib kirib sotamiz. Bizdan buyurtma asosida ham hitoydan mahsulot buyurtirishingiz munkin.</p>
+            <p>Biz xitoy bilan to'g'ridan to'g'ri vositachilarsiz mahsulotlarni olib kirib sotamiz. Bizdan buyurtma asosida ham xitoydan mahsulot buyurtirishingiz munkin.</p>
             <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>O'zbekirston,Toshkent viloyati, Qatortol KFY,Kichkina qani ko'chasi, 84-uy</p>
             <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@xitoysavdomarkazi.uz</p>
             <p class="mb-0"><i class="fa fa-phone text-primary mr-3"></i>+998(97)139-18-88</p>
@@ -64,9 +64,7 @@
     <div class="row border-top border-light mx-xl-5 py-4">
         <div class="col-md-6 px-xl-0">
             <p class="mb-md-0 text-center text-md-left text-dark">
-                &copy; <a class="text-dark font-weight-semi-bold" href="#">Xitoy Savdo Markazi</a>. All Rights Reserved. Developer
-                by
-                <a class="text-dark font-weight-semi-bold" href="#">Usulidin Umarjonov</a><br>
+                &copy; <a class="text-dark font-weight-semi-bold" href="#">Xitoy Savdo Markazi</a>. Barcha huquqlar himoyalangan
             </p>
         </div>
         <div class="col-md-6 px-xl-0 text-center text-md-right">
