@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="e06e4b41-610d-4d87-a366-303d38f8a7cc" name="trucks.uz">
-        <fileTransfer rootFolder="/home/admin/web/truck.quramiz.uz/public_html" accessType="SFTP" host="176.96.243.91" port="22" sshConfigId="6072a2be-584b-478e-895a-2b306f67acec" sshConfig="admin@176.96.243.91:22 password">
+        <fileTransfer rootFolder="/home/admin/web" accessType="SFTP" host="176.96.243.91" port="22" sshConfigId="6072a2be-584b-478e-895a-2b306f67acec" sshConfig="admin@176.96.243.91:22 password">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

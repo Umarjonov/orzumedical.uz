@@ -13,8 +13,8 @@
             <div class="col-lg-3 col-md-12">
                 <!-- Price Start -->
                 <div class="border-bottom mb-4 pb-4">
-                    <h5 class="font-weight-semi-bold mb-4">Filter by catalog</h5>
-                    <select class="select2" multiple="multiple" name="catalog[]" data-placeholder="@lang('pleaseSelect')" style="width: 100%;">
+                    <h5 class="font-weight-semi-bold mb-4">Katalog boyicha tanlash</h5>
+                    <select class="select2" multiple="multiple" name="catalog[]" data-placeholder="Tanlang" style="width: 100%;">
                         @foreach($catalogs as $catalog)
                             <option value="{{ $catalog->id }}" {{ isset($filterData['catalog']) && in_array($catalog->id,$filterData['catalog'])?'selected':'' }}>{{ $catalog->id .'-'. $catalog->name }}</option>
                         @endforeach
@@ -24,8 +24,8 @@
 
                 <!-- Color Start -->
                 <div class="border-bottom mb-4 pb-4">
-                    <h5 class="font-weight-semi-bold mb-4">Filter by brand</h5>
-                    <select class="select2" multiple="multiple" name="brand[]" data-placeholder="@lang('pleaseSelect')" style="width: 100%;">
+                    <h5 class="font-weight-semi-bold mb-4">Brend boyicha tanlash</h5>
+                    <select class="select2" multiple="multiple" name="brand[]" data-placeholder="Tanlang" style="width: 100%;">
                         @foreach($brands as $brand)
                             <option value="{{ $brand->id }}" {{ isset($filterData['brand']) && in_array($brand->id,$filterData['brand'])?'selected':'' }}>{{ $brand->id .'-'. $brand->name }}</option>
                         @endforeach
