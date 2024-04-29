@@ -20,7 +20,7 @@ class ProductController extends Controller
 
     public function details($id)
     {
-        abort_if_forbidden('product.details');
+//        abort_if_forbidden('product.details');
         $catalogs = Catalog::where(['is_active'=>1,'parent_id'=>0])->with('child')->get();
         $brands = Brand::where(['is_active'=>1])->limit(10)->get();
         $product = Product::where('id',$id)->first();

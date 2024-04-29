@@ -6,7 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ffb7f6e3-df4c-4b98-8781-231015e34502" name="Changes" comment="Argon Pro Dashboard For Laravel Framework 9.x and Up. RBAC(spatie), Localization, Socialite(github,google), flash message">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Blade/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Blade/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/shop.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +248,7 @@
       <workItem from="1702872494578" duration="915000" />
       <workItem from="1714130951418" duration="917000" />
       <workItem from="1714365515170" duration="2018000" />
-      <workItem from="1714367571601" duration="1036000" />
+      <workItem from="1714367571601" duration="1782000" />
     </task>
     <task id="LOCAL-00001" summary="Argon Pro Dashboard For Laravel Framework 9.x and Up. RBAC(spatie), Localization, Socialite(github,google), flash message">
       <created>1650256196450</created>

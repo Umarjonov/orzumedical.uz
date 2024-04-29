@@ -42,38 +42,38 @@
                 </div>
                 <h3 class="font-weight-semi-bold mb-4">{{$product->price ? $product->price.' '.($product->currency==2?'USD':'SUM') :''}}</h3>
                 <p class="mb-4">{{$product->title??''}}</p>
-                <div class="d-flex pt-2">
-                    <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
-                    <div class="d-inline-flex">
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="text-dark px-2" href="">
-                            <i class="fab fa-pinterest"></i>
-                        </a>
-                    </div>
-                </div>
+{{--                <div class="d-flex pt-2">--}}
+{{--                    <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>--}}
+{{--                    <div class="d-inline-flex">--}}
+{{--                        <a class="text-dark px-2" href="">--}}
+{{--                            <i class="fab fa-facebook-f"></i>--}}
+{{--                        </a>--}}
+{{--                        <a class="text-dark px-2" href="">--}}
+{{--                            <i class="fab fa-twitter"></i>--}}
+{{--                        </a>--}}
+{{--                        <a class="text-dark px-2" href="">--}}
+{{--                            <i class="fab fa-linkedin-in"></i>--}}
+{{--                        </a>--}}
+{{--                        <a class="text-dark px-2" href="">--}}
+{{--                            <i class="fab fa-pinterest"></i>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
         <div class="row px-xl-5">
             <div class="col">
                 <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Tavsifi</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Ma`lumoti</a>
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
-                        <h4 class="mb-3">Product Description</h4>
+                        <h4 class="mb-3">Mahsulot tavsifi</h4>
                         {{$product->description??'No Description Found'}}
                     </div>
                     <div class="tab-pane fade" id="tab-pane-2">
-                        <h4 class="mb-3">Additional Information</h4>
+                        <h4 class="mb-3">Qo'shimcha ma'lumot</h4>
                         {{$product->information??'No Additional Information Found'}}
                     </div>
                 </div>
