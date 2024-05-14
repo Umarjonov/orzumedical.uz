@@ -47,15 +47,15 @@ Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
     Route::get('profile',[App\Http\Controllers\UserController::class,'profileShow'])->name('profile.edit');
     Route::post('profile/password',[App\Http\Controllers\UserController::class,'profilePassword'])->name('profile.password');
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
-	 Route::get('map', function () {return view('pages.maps');})->name('map');
-	 Route::get('icons', function () {return view('pages.icons');})->name('icons');
-	 Route::get('table-list', function () {return view('pages.tables');})->name('table');
-     Route::resource('catalog', 'App\Http\Controllers\Blade\CatalogController');
-     Route::resource('brand', 'App\Http\Controllers\Blade\BrandController');
-     Route::resource('carousel', 'App\Http\Controllers\Blade\CarouselController');
-     Route::resource('product', 'App\Http\Controllers\Blade\ProductController');
+    Route::get('map', function () {return view('pages.maps');})->name('map');
+    Route::get('icons', function () {return view('pages.icons');})->name('icons');
+    Route::get('table-list', function () {return view('pages.tables');})->name('table');
+    Route::resource('catalog', 'App\Http\Controllers\Blade\CatalogController');
+    Route::resource('brand', 'App\Http\Controllers\Blade\BrandController');
+    Route::resource('carousel', 'App\Http\Controllers\Blade\CarouselController');
+    Route::resource('product', 'App\Http\Controllers\Blade\ProductController');
 
-     Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
+    Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
     Route::post('product/index',[App\Http\Controllers\Blade\ProductController::class,'indexApi']);
 });
 

@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffb7f6e3-df4c-4b98-8781-231015e34502" name="Changes" comment="Argon Pro Dashboard For Laravel Framework 9.x and Up. RBAC(spatie), Localization, Socialite(github,google), flash message">
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/product/details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/product/details.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/contact.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,12 +210,13 @@
     &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/works/trucks.uz&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/mrusu/PhpstormProjects/xitoysavdomarkazi.uz&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -246,7 +249,15 @@
       <workItem from="1702872494578" duration="915000" />
       <workItem from="1714130951418" duration="917000" />
       <workItem from="1714365515170" duration="2018000" />
-      <workItem from="1714367571601" duration="2070000" />
+      <workItem from="1714367571601" duration="5121000" />
+      <workItem from="1714450129164" duration="1191000" />
+      <workItem from="1714516785115" duration="2795000" />
+      <workItem from="1714565669511" duration="3166000" />
+      <workItem from="1714694117101" duration="316000" />
+      <workItem from="1714694449482" duration="2496000" />
+      <workItem from="1714970364371" duration="193000" />
+      <workItem from="1714970668019" duration="2258000" />
+      <workItem from="1715659303769" duration="172000" />
     </task>
     <task id="LOCAL-00001" summary="Argon Pro Dashboard For Laravel Framework 9.x and Up. RBAC(spatie), Localization, Socialite(github,google), flash message">
       <created>1650256196450</created>

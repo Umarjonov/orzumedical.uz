@@ -15,7 +15,7 @@
                 <h5 class="font-weight-semi-bold mb-3">Aloqaga chiqish uchun</h5>
                 <p>Biz xitoy bilan to'g'ridan to'g'ri vositachilarsiz mahsulotlarni olib kirib sotamiz. Bizdan buyurtma asosida ham xitoydan mahsulot buyurtirishingiz munkin.</p>
                 <div class="d-flex flex-column mb-3">
-                    <h5 class="font-weight-semi-bold mb-3">Do'kon 1</h5>
+                    <h5 class="font-weight-semi-bold mb-3">Xitoy Savdo Markazi</h5>
                     <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>O'zbekirston,Toshkent viloyati, Qatortol KFY,Kichkina qani ko'chasi, 84-uy</p>
                     <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@xitoysavdomarkazi.uz</p>
                     <p class="mb-0"><i class="fa fa-phone text-primary mr-3"></i>+998(97)139-18-88</p>
