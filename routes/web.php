@@ -15,11 +15,6 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'welcome'])->name('welcome');
-Route::get('product/{id}/details', [App\Http\Controllers\Blade\ProductController::class, 'details'])->name('product.details');
-Route::get('contact', [App\Http\Controllers\MainController::class, 'contact'])->name('contact');
-Route::get('shop', [App\Http\Controllers\MainController::class, 'shop'])->name('shop');
-Route::post('shop', [App\Http\Controllers\MainController::class, 'shopPost'])->name('shop.post');
-Route::get('shop/{id}/catalog', [App\Http\Controllers\MainController::class, 'shopCatalog'])->name('shop.catalog');
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
@@ -50,11 +45,6 @@ Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
     Route::get('map', function () {return view('pages.maps');})->name('map');
     Route::get('icons', function () {return view('pages.icons');})->name('icons');
     Route::get('table-list', function () {return view('pages.tables');})->name('table');
-    Route::resource('catalog', 'App\Http\Controllers\Blade\CatalogController');
-    Route::resource('brand', 'App\Http\Controllers\Blade\BrandController');
-    Route::resource('carousel', 'App\Http\Controllers\Blade\CarouselController');
-    Route::resource('product', 'App\Http\Controllers\Blade\ProductController');
-
     Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
     Route::post('product/index',[App\Http\Controllers\Blade\ProductController::class,'indexApi']);
 });

@@ -13,11 +13,7 @@ class MainController extends Controller
 {
     public function welcome()
     {
-        $carousels = Carousel::where('status',1)->get();
-        $catalogs = Catalog::where(['is_active'=>1,'parent_id'=>0])->with('child')->withCount('product')->get();
-        $brands = Brand::where(['is_active'=>1])->limit(10)->get();
-        $products = Product::where(['is_active'=>1])->latest()->limit(10)->get();
-        return view('welcome',compact('carousels','catalogs','brands','products'));
+        return view("comingsoon.index");
     }
 
     public function contact()
