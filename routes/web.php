@@ -15,6 +15,7 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'welcome'])->name('welcome');
+Route::get('/soon',fn()=>view('comingsoon.index'));
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();
 
@@ -33,7 +34,13 @@ Route::group(['namespace' => 'App\Http\Controllers','prefix'=>'admin'], function
     Route::group(['middleware' => ['auth', 'permission']], function() {
         Route::resource('roles', RolesController::class);
         Route::resource('permissions', PermissionsController::class);
+        Route::resource('languages', LanguageController::class);
+        Route::post('languages/update/modal',[App\Http\Controllers\LanguageController::class,'updateModal'])->name('languages.update.modal');
+        Route::resource('branches', BranchController::class);
+        Route::resource('videos', VideoController::class);
+        Route::resource('call_backs', CallBackController::class);
     });
+
 });
 
 Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
@@ -45,8 +52,6 @@ Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
     Route::get('map', function () {return view('pages.maps');})->name('map');
     Route::get('icons', function () {return view('pages.icons');})->name('icons');
     Route::get('table-list', function () {return view('pages.tables');})->name('table');
-    Route::post('profile/update', [App\Http\Controllers\ProfileController::class,'update'])->name('profile.update');
-    Route::post('product/index',[App\Http\Controllers\Blade\ProductController::class,'indexApi']);
 });
 
 // Change language session condition

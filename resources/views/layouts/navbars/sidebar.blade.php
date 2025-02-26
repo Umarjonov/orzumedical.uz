@@ -7,7 +7,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <h3><b>Xitoy Savdo Markazi</b></h3>
+            <h3><b>{{ config('app.name', 'OrzuMedical') }}</b></h3>
         </a>
         <div class="dropdown justify-content-center d-md-none">
             <a href="#" class="btn btn-default dropdown-toggle p-1" data-toggle="dropdown" id="navbarDropdownMenuLink2">
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-6 collapse-brand">
                         <a href="{{ route('home') }}">
-                            Xitoy Savdo Markazi
+                            {{ config('app.name', 'OrzuMedical') }}
                         </a>
                     </div>
                     <div class="col-6 collapse-close">
@@ -106,35 +106,36 @@
                         <i class="ni ni-tv-2 text-primary"></i> @lang('global.home')
                     </a>
                 </li>
-                @can('catalog.index')
+                @can('branch.show')
                     <li class="nav-item">
-                        <a class="nav-link {{ (Request::is('catalog*')) ? 'active':''}}" href="{{ route('catalog.index') }}">
-                            <i class="nav-icon fas fa-clipboard"></i>
-                            <span class="nav-link-text">Каталог</span>
+                        <a href="{{ route('branches.index') }}" class="nav-link {{ Request::is('branches*') ? "active":'' }}">
+                            <i class="nav-icon fas fa-store"></i>
+                            <span class="nav-link-text">@lang('base.branch')</span>
                         </a>
                     </li>
                 @endcan
-                @can('brand.index')
+                @can('videos.show')
                     <li class="nav-item">
-                        <a class="nav-link {{ (Request::is('brand*')) ? 'active':''}}" href="{{ route('brand.index') }}">
-                            <i class="nav-icon fas fa-copyright"></i>
-                            <span class="nav-link-text">Бренд</span>
+                        <a href="{{ route('videos.index') }}" class="nav-link {{ Request::is('videos*') ? "active":'' }}">
+                            <i class="nav-icon fas fa-video"></i>
+                            <span class="nav-link-text">@lang('base.video.title')</span>
                         </a>
                     </li>
                 @endcan
-                @can('carousel.index')
+                @can('call_back.show')
                     <li class="nav-item">
-                        <a class="nav-link {{ (Request::is('carousel*')) ? 'active':''}}" href="{{ route('carousel.index') }}">
-                            <i class="nav-icon fas fa-images"></i>
-                            <span class="nav-link-text">Карусель</span>
+                        <a href="{{ route('call_backs.index') }}" class="nav-link {{ Request::is('call_backs*') ? "active":'' }}">
+                            <i class="nav-icon fas fa-phone"></i>
+                            <span class="nav-link-text">@lang('base.call_back')</span>
                         </a>
                     </li>
                 @endcan
-                @can('product.index')
+
+                @can('language.show')
                     <li class="nav-item">
-                        <a class="nav-link {{ (Request::is('product*')) ? 'active':''}}" href="{{ route('product.index') }}">
-                            <i class="nav-icon fas fa-folder-plus"></i>
-                            <span class="nav-link-text">Товар</span>
+                        <a href="{{ route('languages.index') }}" class="nav-link {{ Request::is('tools/languages*') ? "active":'' }}">
+                            <i class="nav-icon fas fa-language"></i>
+                            <span class="nav-link-text">@lang('base.local.title')</span>
                         </a>
                     </li>
                 @endcan

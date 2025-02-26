@@ -133,7 +133,6 @@
         </div>
     </div>
 
-    @include('layouts.footers.auth')
     @push('js')
         <script src="{{asset('assets/vendor/select2/dist/js/select2.full.min.js')}}"></script>
         <script>

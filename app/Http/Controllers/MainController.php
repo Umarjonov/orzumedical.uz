@@ -13,7 +13,7 @@ class MainController extends Controller
 {
     public function welcome()
     {
-        return view("comingsoon.index");
+        return view("landing");
     }
 
     public function contact()

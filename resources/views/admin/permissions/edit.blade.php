@@ -57,7 +57,6 @@
         </div>
     </div>
 
-    @include('layouts.footers.auth')
     @push('js')
 
     @endpush

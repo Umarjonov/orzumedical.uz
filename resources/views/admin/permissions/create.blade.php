@@ -89,7 +89,6 @@
         </div>
     </div>
 
-    @include('layouts.footers.auth')
     <script>
         var demo1 = $('select[name="permissions[]"]').bootstrapDualListbox({
             nonSelectedListLabel: "Available @lang('cruds.permission.fields.permissions')",
