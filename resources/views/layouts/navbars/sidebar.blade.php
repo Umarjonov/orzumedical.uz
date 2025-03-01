@@ -126,7 +126,7 @@
                     <li class="nav-item">
                         <a href="{{ route('call_backs.index') }}" class="nav-link {{ Request::is('call_backs*') ? "active":'' }}">
                             <i class="nav-icon fas fa-phone"></i>
-                            <span class="nav-link-text">@lang('base.call_back')</span>
+                            <span class="nav-link-text">@lang('base.call_backs')</span>
                         </a>
                     </li>
                 @endcan

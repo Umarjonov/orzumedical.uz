@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="{{ App::getLocale('locale') }}">
 
 <head>
     <meta charset="UTF-8" />
@@ -51,7 +51,7 @@
         </a>
 
         <!-- Right Side: Mobile Phone Button -->
-        <a href="tel:555081010"
+        <a href='tel:@Lang("base.tel1")'
            class="lg:hidden w-10 h-10 flex items-center justify-center bg-[#4A9F50] rounded-lg">
             <i class="fas fa-phone-alt text-white"></i>
         </a>
@@ -73,73 +73,69 @@
             <a href="mailto:orzumedical.uz@gmail.com"
                class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
                 <i class="fas fa-envelope"></i>
-                <span>orzumedical.uz@gmail.com</span>
+                <span>@Lang("base.email")</span>
             </a>
 
             <!-- Telegram -->
             <a href="#"
                class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
                 <i class="fab fa-telegram-plane text-xl"></i>
-                <span>Telegram</span>
+                <span>@Lang("base.telegram")</span>
             </a>
 
             <!-- WhatsApp -->
             <a href="#"
                class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
                 <i class="fab fa-whatsapp text-xl"></i>
-                <span>WhatsApp</span>
+                <span>@Lang("base.WhatsApp")</span>
             </a>
         </div>
         <!-- Til o'zgartirish -->
         <div class="hidden lg:flex items-center space-x-6">
-            <button class="lang-btn bg-white text-[#4A9F50] hover:opacity-80 px-2 py-1 rounded">
+            <a href="/language/uz" class="lang-btn {{ App::getLocale('locale')=='uz' ? 'bg-white text-[#4A9F50]' : '' }} hover:opacity-80 px-2 py-1 rounded">
                 <img src="{{ asset('uploads/img/uz.svg') }}" alt="UZ" class="w-8 h-6">
-            </button>
-            <button class="lang-btn px-2 py-1 rounded hover:opacity-80">
+            </a>
+            <a href="/language/ru" class="lang-btn {{ App::getLocale('locale')=='ru' ? 'bg-white text-[#4A9F50]' : '' }} hover:opacity-80 px-2 py-1 rounded">
                 <img src="{{ asset('uploads/img/ru.svg') }}" alt="RU" class="w-8 h-6">
-            </button>
-            <button class="lang-btn px-2 py-1 rounded hover:opacity-80">
-                <img src="{{ asset('uploads/img/en.svg') }}" alt="EN" class="w-8 h-6">
-            </button>
+            </a>
         </div>
     </div>
 </header>
 
 <!-- Desktop Menu -->
 <nav class="bg-white max-w-6xl mx-auto shadow-sm rounded-lg  mt-[31px] px-7 hidden lg:block">
-    <div class=" w-full   py-[15.5px]  flex items-center justify-between nano-sans">
+    <div class="w-full py-[15.5px]  flex items-center justify-between nano-sans">
         <!-- Logotip -->
-        <a href="#" class="text-xl font-bold text-[#4A9F50]">
+        <a href="/" class="text-xl font-bold text-[#4A9F50]">
             <img src="{{ asset('uploads/img/logo-nav.svg') }}" alt="Logo icon">
         </a>
 
         <!-- Menu bo'limlari -->
         <ul class="flex items-center space-x-[25px] ml-[60px]">
-            <li><a href="#orzu-medical" class="text-black hover:text-[#4A9F50] text-base scroll-link">Orzu
-                    Medical</a></li>
-            <li><a href="#about" class="text-black hover:text-[#4A9F50] text-base scroll-link">Biz haqimizda</a>
+            <li><a href="#orzu-medical" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.orzu_medical")</a></li>
+            <li><a href="#about" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.our_us")</a>
             </li>
-            <li><a href="#filiallar" class="text-black hover:text-[#4A9F50] text-base scroll-link">Filiallar</a>
+            <li><a href="#filiallar" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang('base.branch')</a>
             </li>
-            <li><a href="#xizmatlar" class="text-black hover:text-[#4A9F50] text-base scroll-link">Xizmatlar</a>
+            <li><a href="#xizmatlar" class="text-black hover:text-[#4A9F50] text-base scroll-link">@lang("base.services")</a>
             </li>
-            <li><a href="#aloqa" class="text-black hover:text-[#4A9F50] text-base scroll-link">Aloqa</a></li>
+            <li><a href="#aloqa" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.contact")</a></li>
         </ul>
 
         <!-- Telefon raqami va Button -->
         <div class="flex items-center space-x-[80px] ml-auto">
             <!-- Telefon -->
             <div class="flex items-center space-x-2">
-                <a href="tel:555081010">
+                <a href='tel:@Lang("base.tel1")'>
                     <i class="fas fa-phone-alt text-black"></i>
-                    <span class=" text-lg text-black">55 508 1010</span>
+                    <span class=" text-lg text-black">@Lang("base.tel1")</span>
                 </a>
             </div>
 
             <!-- Button -->
             <a href="#aloqa"
                class="text-lg bg-[#4A9F50] text-white py-[10px] px-[20px] rounded-[10px] hover:bg-[#3e8a41]">
-                Qabulga yozilish
+                @Lang('base.enrollment')
             </a>
         </div>
     </div>
@@ -148,37 +144,34 @@
 <!-- Mobile Menu (Hidden by default) -->
 <nav id="mobile-menu" class="lg:hidden hidden w-full h-screen overflow-hidden z-20 bg-white py-6">
     <ul class="flex flex-col items-start space-y-5 px-6">
-        <li><a href="#orzu-medical" class="text-black text-lg hover:text-[#4A9F50] scroll-link">Orzu Medical</a>
+        <li><a href="#orzu-medical" class="text-black text-lg hover:text-[#4A9F50] scroll-link">@Lang("base.orzu_medical")</a>
         </li>
-        <li><a href="#about" class="text-black text-lg hover:text-[#4A9F50] scroll-link">Biz haqimizda</a></li>
-        <li><a href="#filiallar" class="text-black text-lg hover:text-[#4A9F50] scroll-link">Filiallar</a></li>
-        <li><a href="#xizmatlar" class="text-black text-lg hover:text-[#4A9F50] scroll-link">Xizmatlar</a></li>
-        <li><a href="#aloqa" class="text-black text-lg hover:text-[#4A9F50] scroll-link">Aloqa</a></li>
+        <li><a href="#about" class="text-black text-lg hover:text-[#4A9F50] scroll-link">@Lang("base.our_us")</a></li>
+        <li><a href="#filiallar" class="text-black text-lg hover:text-[#4A9F50] scroll-link">@Lang("base.branch")</a></li>
+        <li><a href="#xizmatlar" class="text-black text-lg hover:text-[#4A9F50] scroll-link">@Lang("base.services")</a></li>
+        <li><a href="#aloqa" class="text-black text-lg hover:text-[#4A9F50] scroll-link">@Lang("base.contact")</a></li>
     </ul>
 
     <div class="relative h-[250px]">
         <div class="mt-8 bg-[#4A9F50] py-4 flex justify-around items-center absolute w-full bottom-0">
             <a href="#" class="flex items-center space-x-2 text-white hover:opacity-80">
                 <i class="fab fa-telegram-plane text-lg"></i>
-                <span>Telegram</span>
+                <span>@Lang('base.telegram')</span>
             </a>
             <a href="#" class="flex items-center space-x-2 text-white hover:opacity-80">
                 <i class="fab fa-whatsapp text-lg"></i>
-                <span>WhatsApp</span>
+                <span>@Lang('base.WhatsApp')</span>
             </a>
         </div>
     </div>
 
     <div class="flex justify-around items-center py-4 bg-white">
-        <button class="lang-btn bg-white border border-gray-300 px-2 py-1 rounded">
+        <a href="/language/uz" class="lang-btn {{ App::getLocale('locale')=='uz' ? 'border' : '' }} border-gray-300 px-2 py-1 rounded">
             <img src="{{ asset('uploads/img/uz.png') }}" alt="UZ" class="w-8 h-6" />
-        </button>
-        <button class="lang-btn border border-gray-300 px-2 py-1 rounded">
-            <img src="{{ asset('uploads/img/ru.png') }}'" alt="RU" class="w-8 h-6" />
-        </button>
-        <button class="lang-btn border border-gray-300 px-2 py-1 rounded">
-            <img src="{{ asset('uploads/img/en.jpg') }}" alt="EN" class="w-8 h-6" />
-        </button>
+        </a>
+        <a href="/language/ru" class="lang-btn {{ App::getLocale('locale')=='ru' ? 'border' : '' }} border-gray-300 px-2 py-1 rounded">
+            <img src="{{ asset('uploads/img/ru.png') }}" alt="RU" class="w-8 h-6" />
+        </a>
     </div>
 </nav>
 
@@ -210,28 +203,20 @@
             <img src="{{ asset('uploads/img/miyya.png')}}" alt="Ikon" class="w-[29px] h-[31px] object-contain ml-2">
 
             <!-- Yozuv -->
-            <span class="text-gray-700 text-[14px] ml-4">More than 10K <br> Patients treated!</span>
+            <span class="text-gray-700 text-[14px] ml-4 max-w-[110px]">@lang('base.more_than')</span>
         </div>
     </div>
 
     <!-- Right Side Text -->
     <div class="w-full lg:w-[544px]">
         <h1 class="nano-sans text-[#E74C3C] text-sm sm:text-base lg:text-lg font-medium leading-5 mb-4">
-            ORZUMEDGA XUSH KELIBSIZ
+            @lang('base.text2')
         </h1>
-        <p
-            class="nano-sans text-gray-800 text-[24px] sm:text-[32px] lg:text-[40px] leading-[32px] sm:leading-[40px] lg:leading-[48px] font-semibold mb-5">
-            Orzu Medical - organizmni kompleks tozalash va davolash markazi!
+        <p class="nano-sans text-gray-800 text-[24px] sm:text-[32px] lg:text-[40px] leading-[32px] sm:leading-[40px] lg:leading-[48px] font-semibold mb-5">
+            @Lang('base.text3')
         </p>
         <p class="nano-sans text-sm sm:text-base text-black leading-[22px] sm:leading-[24px]">
-            "Yaxshi shifokor kasallikni davolaydi, buyuk shifokor esa organizmni <br />
-            sog'lom qiladi" — Uilyam Osler tomonidan aytilgan bu mashhur iqtibos <br />
-            Orzu Medicalda o'z ifodasini topgan. Chunki biz faqatgina ma'lum bir <br />
-            kasallikni emas, butun organizmni davolashga ixtisoslashganmiz.<br /><br />
-            Klinikamiz 20 yildan ortiq vaqt davomida minglab kishilarning sog'lom <br />
-            va baxtli hayot kechirishlariga ulkan hissa qo'shib kelmoqda. Quyida siz uchun qimmatli ma'lumotlar
-            bilan
-            tanishib chiqishingiz mumkin.
+            @Lang('base.text4')
         </p>
     </div>
 </section>
@@ -241,7 +226,7 @@
     <div class="max-w-6xl mx-auto bg-white pt-[94px] pb-[100px] px-4">
         <h1
             class="nano-serif font-semibold text-[32px] sm:text-[36px] lg:text-[40px] leading-[42px] sm:leading-[48px] lg:leading-[54.48px] mb-[44px]">
-            Клиника очищения "Orzu - Medical" это:
+            @Lang('base.text5')
         </h1>
 
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-[150px]">
@@ -253,34 +238,26 @@
                     <div class="flex items-start gap-4">
                         <img class="w-10 h-10" src="{{ asset('uploads/img/batery.svg') }}" alt="Battery icon" />
                         <div class="max-w-[322px]">
-                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">Диагностика
+                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">@Lang('base.Diagnostics')
                             </h3>
-                            <p class="nano-sans text-base leading-[21.79px]">Квалифицированные специалисты сделают
-                                вам
-                                качественную диагностику</p>
+                            <p class="nano-sans text-base leading-[21.79px]">@Lang('base.text6')</p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
                         <img class="w-10 h-10" src="{{ asset('uploads/img/heard.svg') }}" alt="Heart icon" />
                         <div class="max-w-[322px]">
-                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">Очищение
+                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">@Lang('base.Cleansing')
                             </h3>
-                            <p class="nano-sans text-base leading-[21.79px]">Современные методики комплексного
-                                очищения
-                                организма</p>
+                            <p class="nano-sans text-base leading-[21.79px]">@Lang("base.text7")</p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
                         <img class="w-10 h-10" src="{{ asset('uploads/img/nurse.svg') }}" alt="Nurse icon" />
                         <div class="max-w-[322px]">
-                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">Опытные
-                                врачи
-                            </h3>
-                            <p class="nano-sans text-base leading-[21.79px]">У нас в штате квалифицированные,
-                                опытные
-                                врачи</p>
+                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">@Lang('base.text8')</h3>
+                            <p class="nano-sans text-base leading-[21.79px]">@Lang('base.text9')</p>
                         </div>
                     </div>
                 </div>
@@ -293,31 +270,24 @@
                     <div class="flex items-start gap-4">
                         <img class="w-10 h-10" src="{{ asset('uploads/img/hot Meal.svg') }}" alt="Hot meal icon" />
                         <div class="max-w-[322px]">
-                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">Здоровое
-                                питание</h3>
-                            <p class="nano-sans text-base leading-[21.79px]">Сбалансированное питание разработанное
-                                специально для вас</p>
+                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">@Lang("base.Healthy_eating")</h3>
+                            <p class="nano-sans text-base leading-[21.79px]">@Lang("base.text10")</p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
                         <img class="w-10 h-10" src="{{ asset('uploads/img/medical Symbol.svg') }}" alt="Medical symbol icon" />
                         <div class="max-w-[322px]">
-                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">Комфортные
-                                комнаты</h3>
-                            <p class="nano-sans text-base leading-[21.79px]">Комфортные комнаты со всеми удобствами
-                                класса люкс и супер-люкс</p>
+                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">@Lang('base.text11')</h3>
+                            <p class="nano-sans text-base leading-[21.79px]">@Lang('base.text12')</p>
                         </div>
                     </div>
 
                     <div class="flex items-start gap-4">
                         <img class="w-10 h-10" src="{{ asset('uploads/img/hospital Symbol.svg') }}" alt="Hospital symbol icon" />
                         <div class="max-w-[322px]">
-                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">Лечебные
-                                массажи</h3>
-                            <p class="nano-sans text-base leading-[21.79px]">Процедуры от квалифицированных
-                                массажистов,
-                                для улучшения очищения</p>
+                            <h3 class="nano-sans font-semibold text-xl leading-[27.24px] text-[#000000]">@lang("base.text13")</h3>
+                            <p class="nano-sans text-base leading-[21.79px]">@Lang("base.text14")</p>
                         </div>
                     </div>
                 </div>
@@ -333,75 +303,72 @@
 
 <!-- Advantages -->
 <section class="max-w-6xl mx-auto pt-[94px] pb-[100px] px-4">
-    <h1
-        class="noto-serif font-semibold text-[32px] sm:text-[36px] lg:text-[40px] leading-[42px] sm:leading-[48px] lg:leading-[54.48px] mb-6">
-        Преимущества
+    <h1 class="noto-serif font-semibold text-[32px] sm:text-[36px] lg:text-[40px] leading-[42px] sm:leading-[48px] lg:leading-[54.48px] mb-6">
+        @lang("base.Advantages")
     </h1>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="mr-[20px] lg:mr-[40px]">
-            <h3
-                class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                Очищение организма
+            <h3 class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
+                @Lang("base.text15")
             </h3>
-            <p
-                class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                Все процедуры по очищению организма
+            <p class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
+                @Lang("base.text16")
             </p>
         </div>
 
         <div class="mr-[20px] lg:mr-[40px]">
             <h3
                 class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                Лечение
+                @Lang("base.Treatment")
             </h3>
             <p
                 class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                Использование всех методов лечения
+                @Lang("base.text17")
             </p>
         </div>
 
         <div class="mr-[20px] lg:mr-[40px]">
             <h3
                 class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                Дружелюбное отношение
+                @Lang("base.text18")
             </h3>
             <p
                 class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                Доброта и дружелюбие ко всем
+                @Lang("base.text19")
             </p>
         </div>
 
         <div class="mr-[20px] lg:mr-[40px]">
             <h3
                 class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                Сервис
+                @Lang("base.service")
             </h3>
             <p
                 class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                Индивидуальный подход
+                @Lang("base.text20")
             </p>
         </div>
 
         <div class="mr-[20px] lg:mr-[40px]">
             <h3
                 class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                Чистые помещения
+                @Lang("base.text21")
             </h3>
             <p
                 class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                В каждой комнате чистота и порядок
+                @Lang("base.text22")
             </p>
         </div>
 
         <div class="mr-[20px] lg:mr-[40px]">
             <h3
                 class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                Комфорт
+                @Lang("base.Comfort")
             </h3>
             <p
                 class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                Всесторонний комфорт
+                @Lang("base.text23")
             </p>
         </div>
     </div>
@@ -410,92 +377,23 @@
 <!-- ------------------Biz Haqimizda start ------------------------ -->
 <div id="about" class="bg-[#ffffff] pt-[70px] pb-[100px]">
     <section class="max-w-7xl mx-auto p-6 bg-white">
-        <h2
-            class="noto-serif  text-black mb-[45px]  text-[46px] font-semibold leading-[63px] tracking-[0px] text-left">
-            Biz haqimizda
-        </h2>
-
-        <p class="text-[#302E2E] mb-6 noto-sans text-[20px] font-medium leading-[27px] tracking-[0px] ">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the <br>
-            industry's
-            standard dummy text ever since the 1500s, when an unknown printer took a galley of type <br> and
-            scrambled it
-            to
-            make.
+        <h3 class="font-black noto-serif font-semibold text-[32px] mt-[56px] mb-6">@Lang("base.text15")Bemorlarimiz fikrlari</h3>
+        <p class="noto-sans font-medium text-[20px] leading-[27.24px] mb-11">@Lang("base.text15")Bemorlarimiz qoldirgan fikr muloxazalar
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
-                    <iframe class="w-full h-[258px]" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            title="YouTube video" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
+            @foreach($videos as $video)
+                <div>
+                    <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
+                        <iframe class="w-full h-[258px]" src="{{ $video->url }}"
+                                title='@Lang("base.videos.$video->id.title")'
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    </div>
+                    <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">@Lang("base.videos.$video->id.title")</p>
+{{--                    <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>--}}
                 </div>
-                <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">Lorem ip</p>
-                <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>
-            </div>
-
-            <div>
-                <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
-                    <iframe class="w-full h-[258px]" src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
-                            title="YouTube video" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-                <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">Lorem ip</p>
-                <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>
-            </div>
-
-            <div>
-                <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
-                    <iframe class="w-full h-[258px]" src="https://www.youtube.com/embed/oHg5SJYRHA0"
-                            title="YouTube video" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-                <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">Lorem ip</p>
-                <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>
-            </div>
-        </div>
-
-        <h3 class="font-black noto-serif font-semibold text-[32px] mt-[56px] mb-6">Bemorlarimiz fikrlari</h3>
-        <p class="noto-sans font-medium text-[20px] leading-[27.24px] mb-11">Bemorlarimiz qoldirgan fikr muloxazalar
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
-                    <iframe class="w-full h-[258px]" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            title="YouTube video" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-                <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">Lorem ip</p>
-                <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>
-            </div>
-
-            <div>
-                <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
-                    <iframe class="w-full h-[258px]" src="https://www.youtube.com/embed/3JZ_D3ELwOQ"
-                            title="YouTube video" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-                <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">Lorem ip</p>
-                <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>
-            </div>
-
-            <div>
-                <div class="rounded-lg overflow-hidden shadow-lg aspect-video">
-                    <iframe class="w-full h-[258px]" src="https://www.youtube.com/embed/oHg5SJYRHA0"
-                            title="YouTube video" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                </div>
-                <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">Lorem ip</p>
-                <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>
-            </div>
+            @endforeach
         </div>
     </section>
 </div>
@@ -506,195 +404,43 @@
 
 <div id="filiallar" class="max-w-7xl mx-auto py-24 px-6 bg-[#f8f9fe]">
     <h2 class="uppercase noto-sans  text-sm font-bold text-[#E7373C] mb-5">
-        Filiallarimiz
+        @Lang("base.branches")
     </h2>
 
     <div class="flex flex-col lg:flex-row justify-between items-center">
         <p
             class="noto-serif font-semibold text-[46px] leading-[62.65px] md:text-4xl max-w-lg text-center lg:text-left">
-            Toshkent bo’ylab filiallarimiz mavjud
+            @Lang("base.text24")
         </p>
-        <button class="inter font-bold text-base p-[20px] bg-[#4A9F50] text-white rounded-[10px] w-full sm:w-auto">
-            See All Services
-        </button>
     </div>
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-        <li class="bg-white p-6 rounded-lg w-full">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
+        @foreach($branches as $branch)
+            <li class="bg-white p-6 rounded-lg w-full flex flex-col justify-between">
+                <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/images/branches/'.$branch->image)}}" alt="Filial Image" />
+                <p class="noto-sans font-semibold mt-6 text-xl ">@Lang("base.branches.$branch->id.name")</p>
+                <p class="noto-sans font-medium text-[#338038] text-lg mt-2">{{ $branch->address }}</p>
+                <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
+                    @Lang("base.branches.$branch->id.description")
+                </p>
+                <div class="flex justify-between items-center text-[#4A9F50]">
+                    <div class="flex items-center gap-2 cursor-pointer">
+                        <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
+                                stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
+                        </svg>
+                        <p class="inter text-lg font-bold">Kartada ko’rish</p>
+                    </div>
+                    <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
                          xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
+                            d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
+                            stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
                 </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
-        <li class="bg-white p-6 rounded-lg w-full">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
-                </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
-        <li class="bg-white p-6 rounded-lg w-full">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
-                </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
-        <li class="bg-white p-6 rounded-lg w-full">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
-                </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
-        <li class="bg-white p-6 rounded-lg w-full">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
-                </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
-        <li class="bg-white p-6 rounded-lg w-full">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
-                </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
-
-        <li class="bg-white p-6 rounded-lg w-full lg:col-start-2">
-            <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/img/filial.png')}}" alt="Filial Image" />
-            <p class="noto-sans font-semibold mt-6 text-xl ">Nasima-bonu filial</p>
-            <p class="noto-sans font-medium text-[#338038] text-lg mt-2">Yunusobod tumani, 32 uy.</p>
-            <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
-                Lorem Ipsum is simply dummy text <br> of the printing and typesetting industry.
-            </p>
-            <div class="flex justify-between items-center text-[#4A9F50]">
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <svg width="16" height="18" viewBox="0 0 15.334 17.4038" fill="none"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
-                            stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <p class="inter text-lg font-bold">Kartada ko’rish</p>
-                </div>
-                <svg class="cursor-pointer" width="18" height="18" viewBox="0 0 17 17" fill="none"
-                     xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 11C2.11 11 1 9.88 1 8.5C1 7.11 2.11 6 3.5 6C4.88 6 6 7.11 6 8.5C6 9.88 4.88 11 3.5 11ZM13.5 6C12.11 6 11 4.88 11 3.5C11 2.11 12.11 1 13.5 1C14.88 1 16 2.11 16 3.5C16 4.88 14.88 6 13.5 6ZM13.5 16C12.11 16 11 14.88 11 13.5C11 12.11 12.11 11 13.5 11C14.88 11 16 12.11 16 13.5C16 14.88 14.88 16 13.5 16ZM5.75 7.41L11.25 4.58M5.75 9.58L11.25 12.41"
-                        stroke="#338038" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </div>
-        </li>
+            </li>
+        @endforeach
     </ul>
 </div>
 
@@ -705,17 +451,17 @@
 
 <div id="xizmatlar" class="max-w-7xl mx-auto items-center pb-[100px] p-6 bg-[#f8f9fe]">
     <div class="text-center w-full lg:w-[520px] mb-8 mx-auto">
-        <h2 class="noto-serif text-[40px]  font-medium">Xizmatlarimiz</h2>
+        <h2 class="noto-serif text-[40px]  font-medium">@Lang("base.services")</h2>
         <p class="noto-sans font-medium text-[20px] mt-[30px]">
-            Lorem Ipsum is simply dummy text Lorem Ipsum is simply dummy text of the printing and
+            @Lang("base.text25")
         </p>
         <div class="p-5 flex justify-between rounded-lg bg-[#FFFFFF] mt-10 gap-4">
+            <button class="inter font-bold text-[20px] leading-[24.2px]  hover:bg-[#338038] hover:text-white py-4 rounded-lg w-full  transition">
+                @Lang("base.text26")
+            </button>
             <button
-                class="inter font-bold text-[20px] leading-[24.2px]  hover:bg-[#338038] hover:text-white py-4 rounded-lg w-full  transition">10
-                kunlik
-                dastur</button>
-            <button
-                class=" text-black text-[20px] inter font-bold leading-[24.2px] py-4 rounded-lg w-full hover:bg-[#338038] hover:text-white transition">Ambulator
+                class=" text-black text-[20px] inter font-bold leading-[24.2px] py-4 rounded-lg w-full hover:bg-[#338038] hover:text-white transition">
+                @Lang("base.Ambulator")
             </button>
         </div>
     </div>
@@ -725,83 +471,60 @@
         <div class="flex-1 space-y-6">
             <img src="{{ asset('uploads/img/dastur icon.svg') }}" alt="Icon logo">
 
-            <h2 class="noto-sans text-[32px] font-bold">10 kunlik dastur</h2>
+            <h2 class="noto-sans text-[32px] font-bold">@Lang("base.text26")</h2>
 
             <p class="noto-sans text-lg text-[#091E29] font-medium">
-                Ushbu dastur o’z ichiga quyidagilarni oladi Lorem Ipsum is simply dummy text of the printing and
+                @Lang("base.text27")
             </p>
             <ul class="space-y-3 text-gray-700">
                 <li class="flex items-start space-x-2">
                     <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
-                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">To‘liq diagnostika
-                            va maslahat</span>
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text28")</span>
                 </li>
                 <li class="flex items-start space-x-2 !mt-[21px]">
                     <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
-                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">Shaxsiylashtirilgan
-                            davolash rejasi</span>
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text29")</span>
                 </li>
                 <li class="flex items-start space-x-2 !mt-[21px]">
                     <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
-                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">Reabilitatsiya va
-                            sog‘lomlashtirish mashg‘ulotlari</span>
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text30")</span>
                 </li>
                 <li class="flex items-start space-x-2 !mt-[21px]">
                     <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
-                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">Mutaxassislar
-                            kuzatuvi</span>
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text31")</span>
                 </li>
                 <li class="flex items-start space-x-2 !mt-[21px]">
                     <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
-                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">Xavfsiz va qulay
-                            muhit</span>
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text32")</span>
                 </li>
                 <li class="flex items-start space-x-[10px] !mt-[21px]">
                     <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
-                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">Sog‘lom turmush
-                            tarzi bo‘yicha tavsiyalar</span>
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text33")</span>
                 </li>
             </ul>
             <div>
-                <button
-                    class="mt-[80px] inter font-bold text-xl leading-[24.2px] bg-green-600 text-white p-[20px] rounded-[10px] hover:bg-green-700 transition">
-                    Qabulga yoziling
+                <button class="mt-[80px] inter font-bold text-xl leading-[24.2px] bg-green-600 text-white p-[20px] rounded-[10px] hover:bg-green-700 transition">
+                    @Lang("base.enrollment")
                 </button>
             </div>
         </div>
 
         <!-- O'ng qism -->
         <div class="flex-[1.5] flex flex-wrap gap-4">
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="noto-sans font-semibold text-xl">Yunusobod filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Yunusobod tumani, 32-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">396 000 so'm dan</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="noto-sans font-semibold text-xl">Chilonzor filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Chilonzor tumani, 12-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">420 000 so'm dan</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="font-semibold text-lg">Mirzo Ulug‘bek filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Mirzo Ulug‘bek tumani, 45-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">410 000 so'm dan</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="font-semibold text-lg">Yakkasaroy filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Yakkasaroy tumani, 23-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">400 000 so'm dan</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="font-semibold text-lg">Olmazor filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Olmazor tumani, 17-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">390 000 so'm dan</p>
-            </div>
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="font-semibold text-lg">Bektemir filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Bektemir tumani, 8-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">385 000 so'm dan</p>
-            </div>
+            @foreach($branches as $branch)
+                <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
+                    <h3 class="noto-sans font-semibold text-xl">@Lang("base.branches.$branch->id.name")</h3>
+                    <p class="noto-sans font-medium text-lg text-[#979797]">{{ $branch->address }}</p>
+                    <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">{{  number_format($branch->price, 0,'',' ') }} so'm dan</p>
+                </div>
+            @endforeach
+
             <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
                 <h3 class="font-semibold text-lg">Bektemir filiali</h3>
                 <p class="noto-sans font-medium text-lg text-[#979797]">Bektemir tumani, 8-uy</p>
@@ -821,28 +544,27 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <!-- Chap Info  -->
         <div class="space-y-6">
-            <p class="noto-sans text-[#E7373C] font-bold uppercase mb-[20px]">Aloqa</p>
+            <p class="noto-sans text-[#E7373C] font-bold uppercase mb-[20px]">@Lang("base.contact")</p>
             <h2 class="noto-serif text-3xl font-semibold leading-snug mb-[44px]">
-                Biz bilan bog’laning.<br />Savol va takliflar uchun
+                @Lang("base.text34")
             </h2>
             <p class="noto-sans text-xl text-[#000000]">
-                Ushbu dastur o’z ichiga quyidagilarni oladi <br> Lorem Ipsum is simply
-                dummy text of the
+                @Lang("base.text35")
             </p>
             <div class="space-y-4">
                 <div class="flex items-center space-x-3 ">
                     <div class="bg-green-600 text-green-600 py-[8px] px-[6px] rounded-full">
                         <img class="w-[13px] h-[11px]" src="{{ asset('uploads/img/gmail-Photoroom.svg') }}" alt="gmail logo">
                     </div>
-                    <span class="noto-sans text-xl">orzumedical.uz@gmail.com</span>
+                    <span class="noto-sans text-xl">@Lang("base.email")</span>
                 </div>
                 <div class="flex items-center space-x-3">
                     <div class="bg-green-600 text-green-600 p-2 rounded-full">
                         <img src="{{ asset('uploads/img/phone.svg') }}" alt="phone logo">
                     </div>
                     <div class="space-y-1">
-                        <p class="noto-sans text-xl">+998 55 508 1010</p>
-                        <p class="noto-sans text-xl">+7727 312 3698</p>
+                        <p class="noto-sans text-xl">@Lang("base.tel1")</p>
+                        <p class="noto-sans text-xl">@Lang("base.tel2")</p>
                     </div>
                 </div>
             </div>
@@ -851,7 +573,7 @@
         <!-- Aloqa Formasi -->
         <div id="formContainer">
             <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
-                <h3 class="noto-sans font-semibold font-semibold text-[24px]">Qayta aloqa</h3>
+                <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
                 <input type="text" id="nameInput" placeholder="Ismingiz"
                        class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
                        required />

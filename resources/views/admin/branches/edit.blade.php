@@ -32,13 +32,14 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">@lang('global.add')</h3>
+                        <h3 class="card-title">@lang('global.edit')</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
 
-                        <form action="{{ route('branches.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('branches.update',$branch->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
 
                             <label>@lang('cruds.user.fields.name') uz</label>
                             <div class="input-group mb-3">
@@ -47,7 +48,7 @@
                                 </div>
                                 <input name="name_uz" type="text"
                                        class="input form-control {{ $errors->has('name_uz') ? "is-invalid":"" }}"
-                                       value="{{ old('name_uz') }}" id="name_uz" placeholder="name_uz" aria-label="name_uz"
+                                       value="{{ old('name_uz',$branch->name_uz) }}" id="name_uz" placeholder="name_uz" aria-label="name_uz"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('name_uz'))
                                     <span class="error invalid-feedback">{{ $errors->first('name_uz') }}</span>
@@ -60,7 +61,7 @@
                                 </div>
                                 <input name="name_ru" type="text"
                                        class="input form-control {{ $errors->has('name_ru') ? "is-invalid":"" }}"
-                                       value="{{ old('name_ru') }}" id="name_ru" placeholder="name_ru" aria-label="name_ru"
+                                       value="{{ old('name_ru',$branch->name_ru) }}" id="name_ru" placeholder="name_ru" aria-label="name_ru"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('name_ru'))
                                     <span class="error invalid-feedback">{{ $errors->first('name_ru') }}</span>
@@ -74,7 +75,7 @@
                                 </div>
                                 <input name="phone" type="text"
                                        class="input form-control {{ $errors->has('phone') ? "is-invalid":"" }}"
-                                       value="{{ old('phone') }}" id="phone" placeholder="phone" aria-label="phone"
+                                       value="{{ old('phone',$branch->phone) }}" id="phone" placeholder="phone" aria-label="phone"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('phone'))
                                     <span class="error invalid-feedback">{{ $errors->first('phone') }}</span>
@@ -87,7 +88,7 @@
                                 </div>
                                 <input name="description_uz" type="text"
                                        class="input form-control {{ $errors->has('description_uz') ? "is-invalid":"" }}"
-                                       value="{{ old('description_uz') }}" id="description_uz" placeholder="description_uz" aria-label="description_uz"
+                                       value="{{ old('description_uz',$branch->description_uz) }}" id="description_uz" placeholder="description_uz" aria-label="description_uz"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('description_uz'))
                                     <span class="error invalid-feedback">{{ $errors->first('description_uz') }}</span>
@@ -100,7 +101,7 @@
                                 </div>
                                 <input name="description_ru" type="text"
                                        class="input form-control {{ $errors->has('description_ru') ? "is-invalid":"" }}"
-                                       value="{{ old('description_ru') }}" id="description_ru" placeholder="description_ru" aria-label="description_ru"
+                                       value="{{ old('description_ru',$branch->description_ru) }}" id="description_ru" placeholder="description_ru" aria-label="description_ru"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('description_ru'))
                                     <span class="error invalid-feedback">{{ $errors->first('description_ru') }}</span>
@@ -110,7 +111,7 @@
                             <div class="form-group">
                                 <label>@lang('base.image')</label>
                                 <div class="input-group">
-                                    <img src="{{asset('uploads/avatar/default.png')}}" alt="Preview Uploaded Image"
+                                    <img src="{{asset('uploads/images/branches/'.$branch->image)}}" alt="Preview Uploaded Image"
                                          class="mr-2" style="height: 48px;border: 1px solid #ccc !important;width: 48px;border-radius: 50%;" id="file-preview">
                                     <div class="custom-file">
                                         <input type="file" name="image" class="custom-file-input" id="image">
@@ -128,7 +129,7 @@
                                 </div>
                                 <input name="address" type="text"
                                        class="input form-control {{ $errors->has(' address') ? "is-invalid":"" }}"
-                                       value="{{ old('address') }}" id="address" placeholder="address" aria-label="address"
+                                       value="{{ old('address',$branch->address) }}" id="address" placeholder="address" aria-label="address"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('address'))
                                     <span class="error invalid-feedback">{{ $errors->first('address') }}</span>
@@ -137,8 +138,8 @@
                             <label>@lang('base.status')</label>
                             <div class="input-group mb-3">
                                 <select name="status" class="form-control">
-                                    <option value="active">Active</option>
-                                    <option value="inactive">Inactive</option>
+                                    <option value="active" {{$branch->status=='active' ? 'selected' : ""}}>Active</option>
+                                    <option value="inactive" {{$branch->status=='inactive' ? 'selected' : ""}}>Inactive</option>
                                 </select>
                             </div>
                             <label>@lang('base.latitude')</label>
@@ -148,7 +149,7 @@
                                 </div>
                                 <input name="latitude" type="text"
                                        class="input form-control {{ $errors->has('latitude') ? "is-invalid":"" }}"
-                                       value="{{ old('latitude') }}" id="latitude" placeholder="latitude" aria-label="latitude"
+                                       value="{{ old('latitude',$branch->latitude) }}" id="latitude" placeholder="latitude" aria-label="latitude"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('latitude'))
                                     <span class="error invalid-feedback">{{ $errors->first('latitude') }}</span>
@@ -161,7 +162,7 @@
                                 </div>
                                 <input name="longitude" type="text"
                                        class="input form-control {{ $errors->has('longitude') ? "is-invalid":"" }}"
-                                       value="{{ old('longitude') }}" id="longitude" placeholder="longitude" aria-label="longitude"
+                                       value="{{ old('longitude',$branch->longitude) }}" id="longitude" placeholder="longitude" aria-label="longitude"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('longitude'))
                                     <span class="error invalid-feedback">{{ $errors->first('longitude') }}</span>
@@ -174,7 +175,7 @@
                                 </div>
                                 <input name="price" type="text"
                                        class="input form-control {{ $errors->has('price') ? "is-invalid":"" }}"
-                                       value="{{ old('price') }}" id="price" placeholder="price" aria-label="price"
+                                       value="{{ old('price',$branch->price) }}" id="price" placeholder="price" aria-label="price"
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('price'))
                                     <span class="error invalid-feedback">{{ $errors->first('price') }}</span>

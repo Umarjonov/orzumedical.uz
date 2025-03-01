@@ -47,8 +47,6 @@ class LanguageController extends Controller
             'key' => $request->get('key'),
             'uz' => $request->get('uz'),
             'ru' => $request->get('ru'),
-            'oz' => $request->has('oz') ? $request->get('oz') : $request->get('uz'),
-            'en' => $request->has('en') ? $request->get('en') : '',
         ]);
         message_set("Muvafaqqiyatli! Tarjima qo'shildi.",'success',3);
         return redirect()->route('languages.index');
@@ -68,8 +66,6 @@ class LanguageController extends Controller
             $language->update([
                 'uz' => $request->get('uz'),
                 'ru' => $request->get('ru'),
-                'oz' => $request->oz ? $request->get('oz') : '',
-                'en' => $request->en ? $request->get('en') : '',
             ]);
         }else{
             message_set("Xatolik bor! Iltimos malumotlarni to'g'ri kiriting",'error',5);

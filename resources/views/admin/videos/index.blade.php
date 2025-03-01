@@ -35,8 +35,8 @@
 
     <!-- Page content -->
     <div class="container-fluid mt--6">
-        <div class="row">
-            <div class="col">
+        <div class="row mb-4">
+            <div class="col ">
                 <div class="card">
                     <!-- Data table -->
                     <div class="table-responsive py-4">
@@ -98,10 +98,15 @@
         <script src="{{ asset('assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
         <script>
             $(document).ready(function () {
+                //     #example tabel "Предыдущая" change btn
                 var table = $('#example').DataTable({
                     lengthChange: true,
                     language: {
                         url: "{{ asset('assets/any/datatable-ru.json') }}",
+                        paginate: {
+                            previous: "<i class='fas fa-angle-left'>",
+                            next: "<i class='fas fa-angle-right'>"
+                        }
                     },
                     order: [[0, 'desc']]
                 });
@@ -109,6 +114,8 @@
                 table.buttons().container()
                     .appendTo('#example_wrapper .col-md-6:eq(0)');
             });
+
+
         </script>
     @endpush
 @endsection

@@ -1,4 +1,4 @@
 <?php
-$Lang = \App\Models\Language::pluck('en','key')->toArray();
+$Lang = \App\Models\Language::pluck('uz','key')->toArray();
 
 return $Lang;

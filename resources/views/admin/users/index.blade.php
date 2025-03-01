@@ -45,7 +45,7 @@
 
     <!-- Page content -->
     <div class="container-fluid mt--6">
-        <div class="row">
+        <div class="row" style="margin-bottom: 350px">
             <div class="col">
                 <div class="card">
                     <div class="table-responsive py-4">

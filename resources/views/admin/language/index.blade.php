@@ -42,10 +42,8 @@
                             <tr>
                                 <th>@lang('cruds.user.fields.id')</th>
                                 <th>@lang('base.key')</th>
-                                <th>UZ</th>
-                                <th>RU</th>
-                                <th>EN</th>
-                                <th>УЗ</th>
+                                <th style="max-width: 200px;">UZ</th>
+                                <th style="max-width: 200px;">RU</th>
                                 <th>@lang('global.actions')</th>
                             </tr>
                             </thead>
@@ -55,8 +53,6 @@
                                 <th>@lang('base.key')</th>
                                 <th>UZ</th>
                                 <th>RU</th>
-                                <th>EN</th>
-                                <th>УЗ</th>
                                 <th>@lang('global.actions')</th>
                             </tr>
                             </tfoot>
@@ -68,8 +64,6 @@
                                     <td>{{ $lang->key }}</td>
                                     <td>{{ $lang->uz }}</td>
                                     <td>{{ $lang->ru }}</td>
-                                    <td>{{ $lang->en }}</td>
-                                    <td>{{ $lang->oz }}</td>
                                     <td class="text-center">
                                         <form action="{{ route('languages.destroy',$lang->id) }}" method="post" id="deleteForm{{$lang->id}}">
                                             @csrf
@@ -142,15 +136,6 @@
                                 <span class="error invalid-feedback">{{ $errors->first('ru') }}</span>
                             @endif
                         </div>
-                        <div class="form-group">
-                            <label>@lang('base.english')</label>
-                            <input type="text" name="en"
-                                   class="form-control {{ $errors->has('en') ? "is-invalid":"" }}"
-                                   value="{{ old('en') }}" required>
-                            @if($errors->has('en'))
-                                <span class="error invalid-feedback">{{ $errors->first('en') }}</span>
-                            @endif
-                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
@@ -184,38 +169,22 @@
                         </div>
                         <div class="form-group">
                             <label>@lang('base.uzbek')</label>
-                            <input type="text" id="uz-edit" name="uz"
-                                   class="form-control {{ $errors->has('uz') ? "is-invalid":"" }}"
-                                   value="{{ old('uz') }}" required>
+                            <textarea id="uz-edit" name="uz"
+                                      class="form-control {{ $errors->has('uz') ? 'is-invalid' : '' }}"
+                                      required>{{ old('uz') }}</textarea>
+
                             @if($errors->has('uz'))
                                 <span class="error invalid-feedback">{{ $errors->first('uz') }}</span>
                             @endif
                         </div>
                         <div class="form-group">
                             <label>@lang('base.russion')</label>
-                            <input type="text" id="ru-edit" name="ru"
-                                   class="form-control {{ $errors->has('ru') ? "is-invalid":"" }}"
-                                   value="{{ old('ru') }}" required>
+                            <textarea id="ru-edit" name="ru"
+                                      class="form-control {{ $errors->has('ru') ? 'is-invalid' : '' }}"
+                                      required>{{ old('ru') }}</textarea>
+
                             @if($errors->has('ru'))
                                 <span class="error invalid-feedback">{{ $errors->first('ru') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label>@lang('base.english')</label>
-                            <input type="text" id="en-edit" name="en"
-                                   class="form-control {{ $errors->has('en') ? "is-invalid":"" }}"
-                                   value="{{ old('en') }}" required>
-                            @if($errors->has('en'))
-                                <span class="error invalid-feedback">{{ $errors->first('en') }}</span>
-                            @endif
-                        </div>
-                        <div class="form-group">
-                            <label>@lang('base.kirilcha')</label>
-                            <input type="text" id="oz-edit" name="oz"
-                                   class="form-control {{ $errors->has('oz') ? "is-invalid":"" }}"
-                                   value="{{ old('oz') }}" required>
-                            @if($errors->has('oz'))
-                                <span class="error invalid-feedback">{{ $errors->first('oz') }}</span>
                             @endif
                         </div>
                     </div>
@@ -236,19 +205,19 @@
         <script>
             $(document).ready(function () {
                 var table = $('#example').DataTable({
-                    "language": {
-                        "lengthMenu": "Показать _MENU_ записей на странице",
-                        "info": "Показано с _START_ по _END_ из _TOTAL_ записей",
-                        "search": "Поиск:",
-                        "paginate": {
-                            "first": "Первая",
-                            "last": "Последняя",
-                            "next": "Следующая",
-                            "previous": "Предыдущая"
+                    language: {
+                        url: "{{ asset('assets/any/datatable-ru.json') }}",
+                        paginate: {
+                            previous: "<i class='fas fa-angle-left'>",
+                            next: "<i class='fas fa-angle-right'>"
                         }
                     },
                     lengthChange: true,
                     order: [[0, 'desc']],
+                    columnDefs: [
+                        {type: 'num', targets: 0},
+                        { className: 'lang_col', targets: [2, 3] }
+                    ]
                 });
 
                 table.buttons().container()
@@ -266,8 +235,6 @@
                 modal.find('#key-edit').val(body.key);
                 modal.find('#uz-edit').val(body.uz);
                 modal.find('#ru-edit').val(body.ru);
-                modal.find('#en-edit').val(body.en);
-                modal.find('#oz-edit').val(body.oz);
 
             });
         </script>

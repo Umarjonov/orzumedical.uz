@@ -6,6 +6,8 @@ use App\Models\Blade\Brand;
 use App\Models\Blade\Carousel;
 use App\Models\Blade\Catalog;
 use App\Models\Blade\Product;
+use App\Models\Branch;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 
@@ -13,7 +15,9 @@ class MainController extends Controller
 {
     public function welcome()
     {
-        return view("landing");
+        $videos = Video::where('status','active')->get();
+        $branches = Branch::where('status','active')->get();
+        return view("landing",compact('videos','branches'));
     }
 
     public function contact()

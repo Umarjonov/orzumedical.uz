@@ -35,7 +35,7 @@
 
     <!-- Page content -->
     <div class="container-fluid mt--6">
-        <div class="row">
+        <div class="row mb-6">
             <div class="col">
                 <div class="card">
                     <!-- Data table -->
@@ -45,8 +45,10 @@
                                 <tr>
                                     <th>@lang('cruds.user.fields.id')</th>
                                     <th>@lang('cruds.user.fields.name')</th>
+                                    <th>@lang("base.image")</th>
                                     <th>@lang('base.phone_number')</th>
                                     <th>@lang('base.address')</th>
+                                    <th>@lang('base.price')</th>
                                     <th>@lang('base.status')</th>
                                     <th>@lang('global.actions')</th>
                                 </tr>
@@ -55,9 +57,14 @@
                             @foreach($branches as $branch)
                                 <tr>
                                     <td>{{ $branch->id }}</td>
-                                    <td>{{ $branch->name }}</td>
-                                    <td>{{ $branch->phone_number }}</td>
+                                    <td>@lang("base.branches.".$branch->id.".name")</td>
+                                    <td>
+                                        <img src="{{ asset('uploads/images/branches/'.$branch->image) }}" alt="{{ $branch->id }}"
+                                             style="width: 100px;height: 100px;border: 1px solid gray;border-radius: 8px">
+                                    </td>
+                                    <td>{{ $branch->phone }}</td>
                                     <td>{{ $branch->address }}</td>
+                                    <td>{{ $branch->price }}</td>
                                     <td>{{ $branch->status }}</td>
                                     <td class="table-actions text-center">
                                         @can('branches.destroy')
@@ -76,7 +83,7 @@
                                                             data-toggle="tooltip"
                                                             data-original-title="Удалить"
                                                             onclick="if (confirm('Вы уверены?')) { this.form.submit() } "
-                                                            style="border: none;color:#5e72e4;cursor:pointer;:hover{border:none;color:#525f7f}">
+                                                            style="background:none;border: none;color:#5e72e4;cursor:pointer;:hover{border:none;color:#525f7f}">
                                                         <i class="fas fa-trash"> </i>
                                                     </button>
                                                 </div>
@@ -101,8 +108,15 @@
                     lengthChange: true,
                     language: {
                         url: "{{ asset('assets/any/datatable-ru.json') }}",
+                        paginate: {
+                            previous: "<i class='fas fa-angle-left'>",
+                            next: "<i class='fas fa-angle-right'>"
+                        }
                     },
-                    order: [[0, 'desc']]
+                    order: [[0, 'desc']],
+                    columnDefs: [
+                        { type: 'num', targets: 0 }
+                    ]
                 });
 
                 table.buttons().container()

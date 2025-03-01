@@ -51,6 +51,12 @@
             body.loading .modal_loading {
                 display: block;
             }
+            .lang_col {
+                max-width: 200px;
+                white-space: pre; /* Matnni bitta qatorda saqlaydi */
+                overflow: hidden;
+                text-overflow: ellipsis; /* Matn uzun bo‘lsa, '...' bilan qisqartiriladi */
+            }
         </style>
         @yield('head')
     </head>
@@ -66,7 +72,7 @@
             <div class="modal_loading"><!-- Place at bottom of page --></div>
             @include('layouts.navbars.navbar')
             @yield('content')
-{{--            @include('layouts.footers.auth')--}}
+            @include('layouts.footers.auth')
         </div>
 
         @guest()

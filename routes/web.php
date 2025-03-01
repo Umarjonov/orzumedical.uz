@@ -39,6 +39,7 @@ Route::group(['namespace' => 'App\Http\Controllers','prefix'=>'admin'], function
         Route::resource('branches', BranchController::class);
         Route::resource('videos', VideoController::class);
         Route::resource('call_backs', CallBackController::class);
+        Route::post('call_backs/update/status',[App\Http\Controllers\CallBackController::class,'updateStatus'])->name('call_backs.update.status');
     });
 
 });
