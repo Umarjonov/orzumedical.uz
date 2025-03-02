@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Branch;
+use App\Models\CallBack;
+use App\Models\Video;
+
 class HomeController extends Controller
 {
     /**
@@ -17,11 +21,14 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
      */
     public function index()
     {
-        return view('dashboard');
+        $videos = Video::where('status','active')->count();
+        $branch = Branch::where('status','active')->count();
+        $leads = CallBack::latest()->get();
+        return view('dashboard',compact('videos','branch','leads'));
     }
 
     public function cache_clear()
