@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('layouts.headers.cards',['videos'=>$videos,'branch'=>$branch,'leads'=>$leads])
+    @include('layouts.headers.cards',['videos'=>$videos,'branch'=>$branch,'leads'=>$lead_count])
 
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--7  pb-8">
         <div class="row mt-5">
             <div class="col-xl-8 mb-5 mb-xl-0">
                 <div class="card shadow">

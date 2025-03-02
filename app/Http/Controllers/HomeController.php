@@ -27,8 +27,9 @@ class HomeController extends Controller
     {
         $videos = Video::where('status','active')->count();
         $branch = Branch::where('status','active')->count();
-        $leads = CallBack::latest()->get();
-        return view('dashboard',compact('videos','branch','leads'));
+        $lead_count = CallBack::count();
+        $leads = CallBack::latest()->limit(6)->get();
+        return view('dashboard',compact('videos','branch','leads','lead_count'));
     }
 
     public function cache_clear()
