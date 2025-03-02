@@ -508,10 +508,10 @@
                         @Lang("base.text33")</span>
                 </li>
             </ul>
-            <div>
-                <button class="mt-[80px] inter font-bold text-xl leading-[24.2px] bg-green-600 text-white p-[20px] rounded-[10px] hover:bg-green-700 transition">
+            <div class="pt-[60px]">
+                <a href="#aloqa" class=" inter font-bold text-xl leading-[24.2px] bg-green-600 text-white p-[20px] rounded-[10px] hover:bg-green-700 transition">
                     @Lang("base.enrollment")
-                </button>
+                </a>
             </div>
         </div>
 

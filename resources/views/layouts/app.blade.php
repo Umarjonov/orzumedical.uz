@@ -72,7 +72,9 @@
             <div class="modal_loading"><!-- Place at bottom of page --></div>
             @include('layouts.navbars.navbar')
             @yield('content')
-            @include('layouts.footers.auth')
+            @auth()
+                @include('layouts.footers.auth')
+            @endauth
         </div>
 
         @guest()

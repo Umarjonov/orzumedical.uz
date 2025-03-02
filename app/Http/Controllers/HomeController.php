@@ -23,4 +23,12 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function cache_clear()
+    {
+        Artisan::call('clear:all', [
+            '--force' => true
+        ]);
+        return redirect()->route('/');
+    }
 }

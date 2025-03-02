@@ -55,8 +55,6 @@ class VideoController extends Controller
             "key"=>"videos.".$video->id.".title",
             "uz"=>$request->title_uz,
             "ru"=>$request->title_ru,
-            "en"=>$request->title_ru,
-            "oz"=>$request->title_ru,
         ];
         Language::create($language);
         message_set("Video yaratildi",'success',5);
@@ -114,8 +112,6 @@ class VideoController extends Controller
         $language = [
             "uz"=>$request->title_uz,
             "ru"=>$request->title_ru,
-            "en"=>$request->title_ru,
-            "oz"=>$request->title_ru,
         ];
         Language::where('key','videos.'.$video->id.'.title')->update($language);
         message_set("Video o'zgartirildi",'success',5);
