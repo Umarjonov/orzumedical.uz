@@ -63,7 +63,7 @@
                                              style="width: 100px;height: 100px;border: 1px solid gray;border-radius: 8px">
                                     </td>
                                     <td>{{ $branch->phone }}</td>
-                                    <td>{{ $branch->address }}</td>
+                                    <td>@Lang("base.branches.".$branch->id.".address")</td>
                                     <td>{{ $branch->price }}</td>
                                     <td>{{ $branch->status }}</td>
                                     <td class="table-actions text-center">

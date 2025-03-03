@@ -122,7 +122,7 @@
                                     <span class="error invalid-feedback">{{ $errors->first('image') }}</span>
                                 @endif
                             </div>
-                            <label>@lang('base.address')</label>
+                            <label>@lang('base.address') uz</label>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
@@ -133,6 +133,19 @@
                                        aria-describedby="basic-addon1" required/>
                                 @if($errors->has('address'))
                                     <span class="error invalid-feedback">{{ $errors->first('address') }}</span>
+                                @endif
+                            </div>
+                            <label>@lang('base.address') ru</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input name="address_ru" type="text"
+                                       class="input form-control {{ $errors->has(' address_ru') ? "is-invalid":"" }}"
+                                       value="{{ old('address',$branch->address_ru) }}" id="address_ru" placeholder="address_ru" aria-label="address_ru"
+                                       aria-describedby="basic-addon1" required/>
+                                @if($errors->has('address_ru'))
+                                    <span class="error invalid-feedback">{{ $errors->first('address_ru') }}</span>
                                 @endif
                             </div>
                             <label>@lang('base.status')</label>

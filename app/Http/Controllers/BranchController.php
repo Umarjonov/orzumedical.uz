@@ -42,11 +42,11 @@ class BranchController extends Controller
         $validator = Validator::make($request->all(), [
             'name_uz' => 'required',
             'name_ru' => 'required',
-            'phone' => 'required',
             'description_uz' => 'required',
             'description_ru' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'address' => 'required',
+            'address_ru' => 'required',
             'status' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
@@ -76,7 +76,12 @@ class BranchController extends Controller
                 "key"=>"branches.".$branch->id.".description",
                 "uz"=>$request->description_uz,
                 "ru"=>$request->description_ru,
-            ]
+            ],
+            [
+                "key"=>"branches.".$branch->id.".address",
+                "uz"=>$request->address,
+                "ru"=>$request->address_ru,
+            ],
         ];
         Language::insert($languages);
         message_set("Branch yaratildi",'success',5);
@@ -108,6 +113,8 @@ class BranchController extends Controller
         $language = Language::where('key','branches.'.$branch->id.'.description')->first();
         $branch->description_uz = $language->uz??'';
         $branch->description_ru = $language->ru??'';
+        $language = Language::where('key','branches.'.$branch->id.'.address')->first();
+        $branch->address_ru = $language->ru??'';
         $branch->latitude = explode(',',$branch->location)[0];
         $branch->longitude = explode(',',$branch->location)[1];
         return view('admin.branches.edit',compact('branch'));
@@ -130,6 +137,7 @@ class BranchController extends Controller
             'description_ru' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'address' => 'required',
+            'address_ru' => 'required',
             'status' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
@@ -161,6 +169,13 @@ class BranchController extends Controller
             [
                 "uz"=>$request->description_uz,
                 "ru"=>$request->description_ru,
+            ]
+        );
+        Language::updateOrCreate(
+            ['key'=>'branches.'.$branch->id.'.address'],
+            [
+                "uz"=>$request->address,
+                "ru"=>$request->address_ru,
             ]
         );
         message_set("Branch o'zgartirildi",'success',5);

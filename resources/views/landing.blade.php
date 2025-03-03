@@ -418,7 +418,7 @@
             <li class="bg-white p-6 rounded-lg w-full flex flex-col justify-between">
                 <img class="w-full h-48 object-cover rounded-md" src="{{ asset('uploads/images/branches/'.$branch->image)}}" alt="Filial Image" />
                 <p class="noto-sans font-semibold mt-6 text-xl ">@Lang("base.branches.$branch->id.name")</p>
-                <p class="noto-sans font-medium text-[#338038] text-lg mt-2">{{ $branch->address }}</p>
+                <p class="noto-sans font-medium text-[#338038] text-lg mt-2">@Lang("base.branches.".$branch->id.".address")</p>
                 <p class="noto-sans font-medium text-[18px] text-[#091E29] leading-[24.52px] mt-3 mb-6">
                     @Lang("base.branches.$branch->id.description")
                 </p>
@@ -521,7 +521,7 @@
                 <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
                     <h3 class="noto-sans font-semibold text-xl">@Lang("base.branches.$branch->id.name")</h3>
                     <p class="noto-sans font-medium text-lg text-[#979797]">{{ $branch->address }}</p>
-                    <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">{{  number_format($branch->price, 0,'',' ') }} so'm dan</p>
+                    <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">{{  $branch->price }} so'm dan</p>
                 </div>
             @endforeach
 
