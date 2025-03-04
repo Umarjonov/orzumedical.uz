@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CallBack;
+use App\Models\Language;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -74,8 +75,8 @@ class CallBackController extends Controller
             return self::fail('user.update',["message"=>$validator->errors()->first(),'code'=>403]);
         }
         $lead = CallBack::create($request->only("name","phone","branch_id"));
-
-        $content = "OrzuClinic\nYangi leads ro'yxatdan o'tdi. Leads ma'lumotlari\nName: ".$lead->name.PHP_EOL.'Phone: '.$lead->phone;
+        $branch_name = Language::where('key',"branches.$lead->branch_id.name")->first()->ru;
+        $content = "OrzuClinic\nYangi leads ro'yxatdan o'tdi. Leads ma'lumotlari\nName: ".$lead->name.PHP_EOL.'Phone: '.$lead->phone.PHP_EOL.'Branch:'.$branch_name;
         sendByTelegram($content,'-1002467823652',"7874252321:AAFBeA353Q0POd8R96fjILPpT_FlbrvD02E");
 
         return self::good("leads.create",["message"=>"success","code"=>200]);

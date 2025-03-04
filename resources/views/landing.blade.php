@@ -106,7 +106,7 @@
             </a>
 
             <!-- Telegram -->
-            <a href="#"
+            <a href="https://t.me/orzu_medical"
                class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
                 <i class="fab fa-telegram-plane text-xl"></i>
                 <span>@Lang("base.telegram")</span>
@@ -607,6 +607,7 @@
                 <select id="branchSelect"
                         class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
                         required>
+                    <option value="1" >@lang("base.branches.1.name")</option>
                     @foreach($branches as $branch)
                         <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
                     @endforeach
@@ -732,16 +733,16 @@
                     @Lang("base.text39")
                 </p>
                 <div class="w-full md:w-[179px] flex justify-start lg:justify-center md:justify-between gap-4">
-                    <a class="hover:scale-110 transition-transform duration-300" href="#">
+                    <a class="hover:scale-110 transition-transform duration-300" href="https://www.instagram.com/orzumedical_uz/profilecard/?igsh=MWJ2bHEwZXF1YWhoNg%3D%3D">
                         <img src="{{ asset('uploads/img/insta icon.svg') }}" alt="insta icon" class="w-6 h-6" />
                     </a>
-                    <a class="hover:scale-110 transition-transform duration-300" href="#">
+                    <a class="hover:scale-110 transition-transform duration-300" href="https://www.facebook.com/share/1Cwihs4Ndz/">
                         <img src="{{ asset('uploads/img/brand-facebook.svg') }}" alt="facebook icon" class="w-6 h-6" />
                     </a>
-                    <a class="hover:scale-110 transition-transform duration-300" href="#">
+                    <a class="hover:scale-110 transition-transform duration-300" href="https://youtube.com/@orzumedicaluz?feature=shared">
                         <img src="{{ asset('uploads/img/brand-youtube.svg') }}" alt="youtube icon" class="w-6 h-6" />
                     </a>
-                    <a class="hover:scale-110 transition-transform duration-300" href="#">
+                    <a class="hover:scale-110 transition-transform duration-300" href="https://t.me/orzu_medical">
                         <img src="{{ asset('uploads/img/brand-telegram.svg') }}" alt="telegram icon" class="w-6 h-6" />
                     </a>
                 </div>
