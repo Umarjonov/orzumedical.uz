@@ -35,3 +35,4 @@ Route::group(['middleware'=>'auth:sanctum'],function (){
     Route::post('profile',[App\Http\Controllers\Api\UserController::class,'profileUpdate']);
     Route::get('user_check',[App\Http\Controllers\Api\UserController::class,'user_check']);
 });
+Route::post('call_backs/store',[App\Http\Controllers\CallBackController::class,'leadsCreate'])->name('leads.create');

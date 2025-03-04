@@ -52,11 +52,33 @@ class CallBackController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
         //
+    }
+    public function leadsCreate(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'phone' => 'required',
+            'branch_id' => 'required|exists:branches,id',
+        ],[
+            'name.required' => 'Поле "Имя" обязательно для заполнения.',
+            'phone.required' => 'Поле "Телефон" обязательно для заполнения.',
+            'branch_id.required' => 'Поле "Филиал" обязательно для заполнения.',
+            'branch_id.exists' => 'Выбранный филиал не существует.',
+        ]);
+        if ($validator->fails()) {
+            return self::fail('user.update',["message"=>$validator->errors()->first(),'code'=>403]);
+        }
+        $lead = CallBack::create($request->only("name","phone","branch_id"));
+
+        $content = "OrzuClinic\nYangi leads ro'yxatdan o'tdi. Leads ma'lumotlari\nName: ".$lead->name.PHP_EOL.'Phone: '.$lead->phone;
+        sendByTelegram($content,'-1002467823652',"7874252321:AAFBeA353Q0POd8R96fjILPpT_FlbrvD02E");
+
+        return self::good("leads.create",["message"=>"success","code"=>200]);
     }
 
     /**

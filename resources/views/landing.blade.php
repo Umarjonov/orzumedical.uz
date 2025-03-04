@@ -7,6 +7,7 @@
     <title>{{ config('app.name', 'Dashboard') }}</title>
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Google Fonts: Nano Sans -->
@@ -30,6 +31,34 @@
 
         .inter {
             font-family: "Inter", sans-serif;
+        }
+        body{
+            background-color: #24282d;
+        }
+        .modal_loading {
+            display:    none;
+            position:   fixed;
+            z-index:    1000;
+            top:        0;
+            left:       0;
+            height:     100%;
+            width:      100%;
+            background: rgba( 255, 255, 255, .8 )
+            url({{asset('uploads/FhHRx.gif')}})
+            50% 50%
+            no-repeat;
+        }
+
+        /* When the body has the loading class, we turn
+           the scrollbar off with overflow:hidden */
+        body.loading .modal_loading {
+            overflow: hidden;
+        }
+
+        /* Anytime the body has the loading class, our
+           modal element will be visible */
+        body.loading .modal_loading {
+            display: block;
         }
     </style>
 </head>
@@ -102,6 +131,7 @@
     </div>
 </header>
 
+<div class="modal_loading"><!-- Place at bottom of page --></div>
 <!-- Desktop Menu -->
 <nav class="bg-white max-w-6xl mx-auto shadow-sm rounded-lg  mt-[31px] px-7 hidden lg:block">
     <div class="w-full py-[15.5px]  flex items-center justify-between nano-sans">
@@ -524,12 +554,6 @@
                     <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">{{  $branch->price }} so'm dan</p>
                 </div>
             @endforeach
-
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
-                <h3 class="font-semibold text-lg">Bektemir filiali</h3>
-                <p class="noto-sans font-medium text-lg text-[#979797]">Bektemir tumani, 8-uy</p>
-                <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">385 000 so'm dan</p>
-            </div>
         </div>
 
     </div>
@@ -583,16 +607,15 @@
                 <select id="branchSelect"
                         class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
                         required>
-                    <option value="inter font-medium text-lg text-[#979797]">Filialni tanlang</option>
-                    <option value="inter font-medium text-lg text-[#979797] Nasima-bonu filial">Nasima-bonu filial
-                    </option>
-                    <option value="inter font-medium text-lg text-[#979797] Yunusobod filial">Yunusobod filial
-                    </option>
+                    @foreach($branches as $branch)
+                        <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
+                    @endforeach
+
                 </select>
                 <button id="submitButton"
                         class="inter font-bold text-xl w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition opacity-50 cursor-not-allowed"
                         disabled>
-                    Yuborish
+                    @Lang('base.send')
                 </button>
             </div>
 
@@ -611,10 +634,10 @@
                 <div>
                     <h3 class="noto-sans font-semibold text-[28px] leading-[38.14px] font-bold opacity-0 tracking-wide"
                         id="successTitle">
-                        Siz muvaffaqiyatli <br> ro'yxatdan o'tdingiz!
+                        @Lang("base.text36")
                     </h3>
                     <p class="mt-2 mb-[24px] noto-sans  text-xl leading-[27.24px] opacity-0" id="successText">
-                        Qisqa fursatda siz bilan bog'lanamiz!
+                        @Lang("base.text37")
                     </p>
                 </div>
             </div>
@@ -627,8 +650,7 @@
 <!-- Modal oynacha -->
 <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-[32px] rounded-[20px] shadow-md text-center">
-        <p class="text-lg noto-sans leading-[21.79px]">Siz muvaffaqiyatli ro'yxatdan o'tdingiz, qisqa fursatda <br>
-            siz bilan bog'lanamiz!</p>
+        <p class="text-lg noto-sans leading-[21.79px]">@Lang("base.text38")</p>
         <button id="okButton"
                 class="mt-[32px] bg-green-600 hover:bg-green-700 text-white px-[70.5px] py-4 rounded-md inter font-bold text-xl">OK</button>
     </div>
@@ -652,23 +674,23 @@
                 <ul>
                     <li class="mb-5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">XIZMATLAR</a>
+                           href="#">@Lang("base.services")</a>
                     </li>
                     <li class="mb-2.5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Podologiya</a>
+                           href="#">@Lang("base.Podologiya")</a>
                     </li>
                     <li class="mb-2.5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Oftolmologiya</a>
+                           href="#">@Lang("base.Oftolmologiya")</a>
                     </li>
                     <li class="mb-2.5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Protseduralar</a>
+                           href="#">@Lang("base.Protseduralar")</a>
                     </li>
                     <li>
                         <a class="nano-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Maslaxatlar</a>
+                           href="#">@Lang("base.Maslaxatlar")</a>
                     </li>
                 </ul>
             </div>
@@ -680,22 +702,13 @@
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
                            href="#">FILIALLAR</a>
                     </li>
-                    <li class="mb-2.5">
-                        <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Yunusobod</a>
-                    </li>
-                    <li class="mb-2.5">
-                        <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Chilonzor</a>
-                    </li>
-                    <li class="mb-2.5">
-                        <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Chig'atoy</a>
-                    </li>
-                    <li>
-                        <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">Tinchlik</a>
-                    </li>
+                    @foreach($branches as $branch)
+                        <li class="mb-2.5">
+                            <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300">
+                                @lang("base.branches.$branch->id.name")
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -703,20 +716,20 @@
         <a href="#aloqa"
            class="w-[236px] lg:w-full block lg:hidden flex justify-center ml-4 lg:ml-0 items-center px-5 py-4 border rounded-xl hover:bg-[#41A34C] hover:scale-105 transition-all duration-300">
             <img src="{{ asset('uploads/img/tg icon.svg') }}" alt="icon tg" class="w-6 h-6" />
-            <span class="inter font-bold ml-4 text-white text-lg">Qabulga yozilish</span>
+            <span class="inter font-bold ml-4 text-white text-lg">@Lang("base.enrollment")</span>
         </a>
 
         <div class="flex lg:block">
             <a href="#aloqa"
                class="w-[236px] lg:w-full hidden lg:flex justify-center ml-4 lg:ml-0 items-center px-5 py-4 border rounded-xl hover:bg-[#41A34C] hover:scale-105 transition-all duration-300">
                 <img src="{{ asset('uploads/img/tg icon.svg') }}" alt="icon tg" class="w-6 h-6" />
-                <span class="inter font-bold ml-4 text-white text-lg">Qabulga yozilish</span>
+                <span class="inter font-bold ml-4 text-white text-lg">@Lang("base.enrollment")</span>
             </a>
 
             <!-- Contact and Social -->
             <div class="w-full md:w-[254px] px-4 lg:px-0 flex flex-col items-center md:items-end">
                 <p class="my-5 w-full text-wrap text-left md:text-right noto-sans text-lg text-white">
-                    Bizni ijtimoiy tarmoqlarda <br> kuzatib boring
+                    @Lang("base.text39")
                 </p>
                 <div class="w-full md:w-[179px] flex justify-start lg:justify-center md:justify-between gap-4">
                     <a class="hover:scale-110 transition-transform duration-300" href="#">
@@ -741,7 +754,23 @@
 <!-- JavaScript ulanishi -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+<script src="{{ asset('argon') }}/vendor/jquery/dist/jquery.min.js"></script>
 <script src="{{ asset('assets/js/script.js') }}" defer></script>
+<script src="{{asset('assets/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+
+@if(session('_message'))
+    <script>
+        Swal.fire({
+            position: 'top-end',
+            type: "{{ session('_type') }}",
+            title: "{{ session('_message') }}",
+            showConfirmButton: false,
+            timer: {{session('_timer') ?? 5000}}
+        });
+    </script>
+    @php(message_clear())
+@endif
+
 </body>
 
 </html>

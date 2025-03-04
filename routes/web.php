@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\Auth\AuthController;
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +40,7 @@ Route::group(['namespace' => 'App\Http\Controllers','prefix'=>'admin'], function
         Route::resource('call_backs', CallBackController::class);
         Route::post('call_backs/update/status',[App\Http\Controllers\CallBackController::class,'updateStatus'])->name('call_backs.update.status');
     });
-
 });
-
 Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
     Route::post('logout',[AuthController::class,'logout'])->name('logout');
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
@@ -56,7 +52,7 @@ Route::group(['middleware' => 'auth','prefix'=>'admin'], function () {
     Route::get('table-list', function () {return view('pages.tables');})->name('table');
 
 });
-    Route::get('cache-clear', [App\Http\Controllers\HomeController::class, 'cache_clear'])->name('cache_clear');
+Route::get('cache-clear', [App\Http\Controllers\HomeController::class, 'cache_clear'])->name('cache_clear');
 
 // Change language session condition
 Route::get('/language/{lang}', function ($lang){

@@ -57,8 +57,42 @@ branchSelect.addEventListener("change", validateForm);
 
 // Submit bosilganda modalni ko'rsatish
 submitButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  successModal.classList.remove("hidden");
+    const { value: name } = document.querySelector("#nameInput");
+    const { value: phone } = document.querySelector("#phoneInput");
+    const { value: branch_id } = document.querySelector("#branchSelect");
+
+    console.log(name, phone, branch_id,$('meta[name="csrf-token"]').attr('content'));
+    $.ajax({
+        "type": 'POST',
+        "url": 'api/call_backs/store',
+        "data": {
+            "name": name,
+            "phone": phone,
+            "branch_id": branch_id
+        },
+        "beforeSend": function () {
+            $("body").addClass("loading");
+        },
+        "success": function (data) {
+            $("body").removeClass("loading");
+            if( data && data.status && data.result ){
+                e.preventDefault();
+                successModal.classList.remove("hidden");
+            }else{
+                Swal.fire({
+                    position: 'top-end',
+                    type: "error",
+                    title: data.error.message,
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            }
+        },
+        "error": function (err) {
+            $("body").removeClass("loading");
+            console.log(err);
+        }
+    });
 });
 
 // "OK" tugmasini bosganda muvaffaqiyatli animatsiya ishlaydi
