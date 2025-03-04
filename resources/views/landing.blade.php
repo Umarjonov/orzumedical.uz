@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ config('app.name', 'Dashboard') }}</title>
+    <!-- Favicon -->
+    <link href="{{ asset('uploads/img/favicon_black.png') }}" rel="icon" type="image/png">
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
