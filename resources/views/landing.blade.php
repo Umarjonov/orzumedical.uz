@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>{{ config('app.name', 'Dashboard') }}</title>
     <!-- Favicon -->
     <link href="{{ asset('uploads/img/favicon_black.png') }}" rel="icon" type="image/png">
@@ -65,7 +65,7 @@
     </style>
 </head>
 
-<body class="bg-[#F8F9FE]" id="body">
+<body class="bg-[#F8F9FE] max-w-full " id="body">
 <!-- Header -->
 
 <header class=" bg-[#4A9F50] text-white py-[14px] text-sm block lg:hidden">
@@ -553,7 +553,7 @@
                 <div class="bg-white p-6 rounded-2xl shadow-md space-y-2 w-full lg:w-[48%]">
                     <h3 class="noto-sans font-semibold text-xl">@Lang("base.branches.$branch->id.name")</h3>
                     <p class="noto-sans font-medium text-lg text-[#979797]">{{ $branch->address }}</p>
-                    <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">{{  $branch->price }} so'm dan</p>
+                    <p class="noto-sans font-medium text-[#4A9F50] font-medium !mt-[16px]">{{  $branch->price }} @Lang("base.som")Œ</p>
                 </div>
             @endforeach
         </div>
