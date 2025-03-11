@@ -370,47 +370,14 @@
                 @Lang("base.text19")
             </p>
         </div>
-
-        <div class="mr-[20px] lg:mr-[40px]">
-            <h3
-                class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                @Lang("base.service")
-            </h3>
-            <p
-                class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                @Lang("base.text20")
-            </p>
-        </div>
-
-        <div class="mr-[20px] lg:mr-[40px]">
-            <h3
-                class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                @Lang("base.text21")
-            </h3>
-            <p
-                class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                @Lang("base.text22")
-            </p>
-        </div>
-
-        <div class="mr-[20px] lg:mr-[40px]">
-            <h3
-                class="nano-sans font-medium text-[24px] sm:text-[26px] lg:text-[28px] leading-[32px] sm:leading-[36px] lg:leading-[38.14px] mb-2">
-                @Lang("base.Comfort")
-            </h3>
-            <p
-                class="nano-sans text-lg sm:text-xl text-[#979797] leading-[24px] sm:leading-[26px] lg:leading-[27.24px]">
-                @Lang("base.text23")
-            </p>
-        </div>
     </div>
 </section>
 
 <!-- ------------------Biz Haqimizda start ------------------------ -->
 <div id="about" class="bg-[#ffffff] pt-[70px] pb-[100px]">
     <section class="max-w-7xl mx-auto p-6 bg-white">
-        <h3 class="font-black noto-serif text-[32px] mt-[56px] mb-6">@Lang("base.text15")Bemorlarimiz fikrlari</h3>
-        <p class="noto-sans font-medium text-[20px] leading-[27.24px] mb-11">@Lang("base.text15")Bemorlarimiz qoldirgan fikr muloxazalar
+        <h3 class="font-black noto-serif text-[32px] mt-[56px] mb-6">@Lang("base.text41")</h3>
+{{--        <p class="noto-sans font-medium text-[20px] leading-[27.24px] mb-11">@Lang("base.text15")Bemorlarimiz qoldirgan fikr muloxazalar--}}
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
