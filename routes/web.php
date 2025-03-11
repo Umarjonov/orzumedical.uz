@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\AuthController;
 */
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'welcome'])->name('welcome');
+Route::get('/any', [App\Http\Controllers\MainController::class, 'any'])->name('any');
 Route::get('/soon',fn()=>view('comingsoon.index'));
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 //Auth::routes();

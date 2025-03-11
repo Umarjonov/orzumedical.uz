@@ -76,7 +76,7 @@ class CallBackController extends Controller
         }
         $lead = CallBack::create($request->only("name","phone","branch_id"));
         $branch_name = Language::where('key',"branches.$lead->branch_id.name")->first()->ru;
-        $content = "OrzuClinic\nYangi leads ro'yxatdan o'tdi. Leads ma'lumotlari\nName: ".$lead->name.PHP_EOL.'Phone: '.$lead->phone.PHP_EOL.'Branch:'.$branch_name;
+        $content = "OrzuClinic\n'Новая заявка' 'Yangi foydalanuvchi' 🔔\nИмя: ".$lead->name.PHP_EOL.'Телефон: '.$lead->phone.PHP_EOL.'Филиал: '.$branch_name;
         sendByTelegram($content,'-1002467823652',"7874252321:AAFBeA353Q0POd8R96fjILPpT_FlbrvD02E");
 
         return self::good("leads.create",["message"=>"success","code"=>200]);

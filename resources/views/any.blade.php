@@ -9,13 +9,14 @@
     <link href="{{ asset('uploads/img/favicon_black.png') }}" rel="icon" type="image/png">
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ asset('assets/css/output.css') }}" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <!-- Google Fonts: Nano Sans -->
     <link href="{{ asset('argon/css/fonts.googleapis.css') }}" rel="stylesheet">
-{{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
-{{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
+    {{--    <link rel="preconnect" href="https://fonts.googleapis.com">--}}
+    {{--    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
@@ -68,111 +69,107 @@
 <body class="bg-[#F8F9FE] relative">
 <!-- Header -->
 
-<header class=" bg-[#4A9F50] text-white py-[14px] text-sm block lg:hidden">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4">
-        <!-- Left Side: Mobile Menu Button -->
-        <button id="menu-toggle"
-                class="lg:hidden w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg">
-            <i class="fas fa-bars text-black text-lg"></i>
-        </button>
+<section > <!-- Header absolute qilindi -->
+    <header class="relative  bg-[#4A9F50] text-white py-[14px] text-sm block lg:hidden">
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-4">
+            <!-- Left Side: Mobile Menu Button -->
+            <button id="menu-toggle"
+                    class="lg:hidden w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg">
+                <i class="fas fa-bars text-black text-lg"></i>
+            </button>
 
-        <!-- Center: Logo -->
-        <a href="#" class="flex items-center justify-center">
-            <img src="{{ asset('uploads/img/logo-nav.svg') }}" alt="Orzu Medical Logo" class="w-[120px]" />
-        </a>
-
-        <!-- Right Side: Mobile Phone Button -->
-        <a href='tel:@Lang("base.tel1")'
-           class="lg:hidden w-10 h-10 flex items-center justify-center bg-[#4A9F50] rounded-lg">
-            <i class="fas fa-phone-alt text-white"></i>
-        </a>
-    </div>
-</header>
-
-<header class="bg-[#4A9F50] text-white py-[14px] text-sm hidden lg:block">
-    <div class="max-w-6xl mx-auto flex items-center justify-between px-4">
-        <!-- Chap tomon: Location va Email -->
-        <div class="flex items-center space-x-12 inter">
-{{--            <!-- Location -->--}}
-{{--            <a href="#"--}}
-{{--               class="relative flex items-center space-x-2   hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">--}}
-{{--                <i class="fas fa-map-marker-alt"></i>--}}
-{{--                <span>Toshkent viloyati</span>--}}
-{{--            </a>--}}
-
-            <!-- Email -->
-            <a href="mailto:orzumedical.uz@gmail.com"
-               class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
-                <i class="fas fa-envelope"></i>
-                <span>@Lang("base.email")</span>
+            <!-- Center: Logo -->
+            <a href="#" class="flex items-center justify-center">
+                <img src="{{ asset('uploads/img/logo-nav.svg') }}" alt="Orzu Medical Logo" class="w-[120px]" />
             </a>
 
-            <!-- Telegram -->
-            <a href="https://t.me/orzu_medical"
-               class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
-                <i class="fab fa-telegram-plane text-xl"></i>
-                <span>@Lang("base.telegram")</span>
-            </a>
-
-            <!-- WhatsApp -->
-            <a href="#"
-               class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
-                <i class="fab fa-whatsapp text-xl"></i>
-                <span>@Lang("base.WhatsApp")</span>
+            <!-- Right Side: Mobile Phone Button -->
+            <a href='tel:@Lang("base.tel1")'
+               class="lg:hidden w-10 h-10 flex items-center justify-center bg-[#4A9F50] rounded-lg">
+                <i class="fas fa-phone-alt text-white"></i>
             </a>
         </div>
-        <!-- Til o'zgartirish -->
-        <div class="hidden lg:flex items-center space-x-6">
-            <a href="/language/uz" class="lang-btn {{ App::getLocale('locale')=='uz' ? 'bg-white text-[#4A9F50]' : '' }} hover:opacity-80 px-2 py-1 rounded">
-                <img src="{{ asset('uploads/img/uz.svg') }}" alt="UZ" class="w-8 h-6">
-            </a>
-            <a href="/language/ru" class="lang-btn {{ App::getLocale('locale')=='ru' ? 'bg-white text-[#4A9F50]' : '' }} hover:opacity-80 px-2 py-1 rounded">
-                <img src="{{ asset('uploads/img/ru.svg') }}" alt="RU" class="w-8 h-6">
-            </a>
-        </div>
-    </div>
-</header>
+    </header>
 
-<div class="modal_loading"><!-- Place at bottom of page --></div>
-<!-- Desktop Menu -->
-<nav class="bg-white max-w-6xl mx-auto shadow-sm rounded-lg  mt-[31px] px-7 hidden lg:block">
-    <div class="w-full py-[15.5px]  flex items-center justify-between nano-sans">
-        <!-- Logotip -->
-        <a href="/" class="text-xl font-bold text-[#4A9F50]">
-            <img src="{{ asset('uploads/img/logo-nav.svg') }}" alt="Logo icon">
-        </a>
+    <header class="bg-[#4A9F50] text-white py-[14px] text-sm hidden lg:block">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-4">
+            <!-- Chap tomon: Location va Email -->
+            <div class="flex items-center space-x-12 inter">
+                <!-- Email -->
+                <a href="mailto:orzumedical.uz@gmail.com"
+                   class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
+                    <i class="fas fa-envelope"></i>
+                    <span>@Lang("base.email")</span>
+                </a>
 
-        <!-- Menu bo'limlari -->
-        <ul class="flex items-center space-x-[25px] ml-[60px]">
-            <li><a href="#orzu-medical" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.orzu_medical")</a></li>
-            <li><a href="#about" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.our_us")</a>
-            </li>
-            <li><a href="#filiallar" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang('base.branch')</a>
-            </li>
-            <li><a href="#xizmatlar" class="text-black hover:text-[#4A9F50] text-base scroll-link">@lang("base.services")</a>
-            </li>
-            <li><a href="#aloqa" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.contact")</a></li>
-        </ul>
+                <!-- Telegram -->
+                <a href="https://t.me/orzu_medical"
+                   class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
+                    <i class="fab fa-telegram-plane text-xl"></i>
+                    <span>@Lang("base.telegram")</span>
+                </a>
 
-        <!-- Telefon raqami va Button -->
-        <div class="flex items-center space-x-[80px] ml-auto">
-            <!-- Telefon -->
-            <div class="flex items-center space-x-2">
-                <a href='tel:@Lang("base.tel1")'>
-                    <i class="fas fa-phone-alt text-black"></i>
-                    <span class=" text-lg text-black">@Lang("base.tel1")</span>
+                <!-- WhatsApp -->
+                <a href="#"
+                   class="relative flex items-center space-x-2 hover:opacity-80 after:content-[''] after:block after:w-0 after:h-[2px] after:bg-white after:transition-all after:duration-300 after:absolute after:bottom-[-2px] after:left-0 hover:after:w-full">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    <span>@Lang("base.WhatsApp")</span>
                 </a>
             </div>
-
-            <!-- Button -->
-            <a href="#aloqa"
-               class="text-lg bg-[#4A9F50] text-white py-[10px] px-[20px] rounded-[10px] hover:bg-[#3e8a41]">
-                @Lang('base.enrollment')
-            </a>
+            <!-- Til o'zgartirish -->
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="/language/uz" class="lang-btn {{ App::getLocale('locale')=='uz' ? 'bg-white text-[#4A9F50]' : '' }} hover:opacity-80 px-2 py-1 rounded">
+                    <img src="{{ asset('uploads/img/uz.svg') }}" alt="UZ" class="w-8 h-6">
+                </a>
+                <a href="/language/ru" class="lang-btn {{ App::getLocale('locale')=='ru' ? 'bg-white text-[#4A9F50]' : '' }} hover:opacity-80 px-2 py-1 rounded">
+                    <img src="{{ asset('uploads/img/ru.svg') }}" alt="RU" class="w-8 h-6">
+                </a>
+            </div>
         </div>
-    </div>
-</nav>
+    </header>
 
+    <div class="modal_loading"><!-- Place at bottom of page --></div>
+
+    <!-- Desktop Menu -->
+    <div class="flex justify-center">
+    <nav class="bg-white max-w-6xl mx-auto shadow-sm rounded-lg  mt-[31px] px-7 hidden lg:block">
+        <div class="w-full py-[15.5px]  flex items-center justify-between nano-sans">
+            <!-- Logotip -->
+            <a href="/" class="text-xl font-bold text-[#4A9F50]">
+                <img src="{{ asset('uploads/img/logo-nav.svg') }}" alt="Logo icon">
+            </a>
+
+            <!-- Menu bo'limlari -->
+            <ul class="flex items-center space-x-[25px] ml-[60px]">
+                <li><a href="#orzu-medical" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.orzu_medical")</a></li>
+                <li><a href="#about" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.our_us")</a>
+                </li>
+                <li><a href="#filiallar" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang('base.branch')</a>
+                </li>
+                <li><a href="#xizmatlar" class="text-black hover:text-[#4A9F50] text-base scroll-link">@lang("base.services")</a>
+                </li>
+                <li><a href="#aloqa" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.contact")</a></li>
+            </ul>
+
+            <!-- Telefon raqami va Button -->
+            <div class="flex items-center space-x-[80px] ml-auto">
+                <!-- Telefon -->
+                <div class="flex items-center space-x-2">
+                    <a href='tel:@Lang("base.tel1")'>
+                        <i class="fas fa-phone-alt text-black"></i>
+                        <span class=" text-lg text-black">@Lang("base.tel1")</span>
+                    </a>
+                </div>
+
+                <!-- Button -->
+                <a href="#aloqa"
+                   class="text-lg bg-[#4A9F50] text-white py-[10px] px-[20px] rounded-[10px] hover:bg-[#3e8a41]">
+                    @Lang('base.enrollment')
+                </a>
+            </div>
+        </div>
+    </nav>
+    </div>
 <!-- Mobile Menu (Hidden by default) -->
 <nav id="mobile-menu" class="lg:hidden hidden w-full h-screen overflow-hidden z-20 bg-white py-6">
     <ul class="flex flex-col items-start space-y-5 px-6">
@@ -206,7 +203,7 @@
         </a>
     </div>
 </nav>
-
+</section>
 
 <!-- Mobile menu toggle , Tushunarli bolishi uchun shu yerga yozildi -->
 <script>
@@ -214,19 +211,20 @@
     const mobileMenu = document.getElementById('mobile-menu');
 
     menuToggle.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden')
+        mobileMenu.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
     });
 </script>
 
 
 <!-- About -->
-<section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mt-[19px] pb-[100px] px-4">
+<section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between pt-24 lg:pt-[150px] pb-[100px] px-4">
     <!-- Left Side (Mobileda tepada)-->
     <div
-        class="relative bg-[#4A9E89] mt-10 w-full w-[328px] md:w-[497px] h-[295.27px] md:h-[447px] rounded-[20px] overflow-visible mb-12">
+        class="relative bg-[#4A9E89] mt-10 w-full md:w-[497px] h-[295.27px] md:h-[447px] rounded-[20px] overflow-visible mb-12">
         <!-- Odam rasmi no-bg -->
         <img src="{{ asset('uploads/img/odam.png')}}" alt="Odam rasmi"
-             class="absolute bottom-0 left-[20px] w-full h-[317.2px] md:h-[480px] object-contain rounded-[20px]">
+             class="absolute bottom-0 left-[15%] lg:left-[20px] w-fit h-[330px] md:h-[480px] object-contain rounded-[20px]">
 
         <!-- Bemorlar Highlight)) -->
         <div
@@ -235,7 +233,7 @@
             <img src="{{ asset('uploads/img/miyya.png')}}" alt="Ikon" class="w-[29px] h-[31px] object-contain ml-2">
 
             <!-- Yozuv -->
-            <span class="text-gray-700 text-[14px] ml-4 max-w-[110px]">@lang('base.more_than')</span>
+            <span class="text-gray-700 w-[130px] text-[14px] ml-4 text-wrap">@lang('base.more_than')</span>
         </div>
     </div>
 
@@ -409,8 +407,12 @@
 <!-- ------------------Biz Haqimizda start ------------------------ -->
 <div id="about" class="bg-[#ffffff] pt-[70px] pb-[100px]">
     <section class="max-w-7xl mx-auto p-6 bg-white">
-        <h3 class="font-black noto-serif text-[32px] mt-[56px] mb-6">@Lang("base.text15")Bemorlarimiz fikrlari</h3>
-        <p class="noto-sans font-medium text-[20px] leading-[27.24px] mb-11">@Lang("base.text15")Bemorlarimiz qoldirgan fikr muloxazalar
+        <h2
+            class="noto-serif  text-black mb-[45px]  text-[46px] font-semibold leading-[63px] tracking-[0px] text-left">
+            @Lang('base.text40')
+        </h2>
+        <p class="noto-sans font-medium text-[20px] leading-[27.24px] mb-11">
+            @Lang("base.text41")
         </p>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -423,7 +425,7 @@
                                 allowfullscreen></iframe>
                     </div>
                     <p class="noto-serif text-black  text-2xl font-bold leading-[33px] ml-2 mt-4">@Lang("base.videos.$video->id.title")</p>
-{{--                    <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>--}}
+                    {{--                    <p class="text-[#979797] nano-sans text-base font-bold leading-[22px] ml-2">Lorem ipsum</p>--}}
                 </div>
             @endforeach
         </div>
@@ -439,12 +441,12 @@
         @Lang("base.branches")
     </h2>
 
-{{--    <div class="flex flex-col lg:flex-row justify-between items-center">--}}
-{{--        <p--}}
-{{--            class="noto-serif font-semibold text-[46px] leading-[62.65px] md:text-4xl max-w-lg text-center lg:text-left">--}}
-{{--            @Lang("base.text24")--}}
-{{--        </p>--}}
-{{--    </div>--}}
+    <div class="flex flex-col lg:flex-row justify-between items-center">
+        <p
+            class="noto-serif font-semibold text-[46px] leading-[62.65px] md:text-4xl max-w-lg text-center lg:text-left">
+            @Lang("base.text24")
+        </p>
+    </div>
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         @foreach($branches as $branch)
             <li class="bg-white p-6 rounded-lg w-full flex flex-col justify-between">
@@ -604,17 +606,16 @@
                        class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
                        required />
                 <input type="text" id="phoneInput" placeholder="Telefon raqamingiz"
-                       class="w-full border rounded-lg p-2  focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
+                       class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
                        required />
-{{--                <label for="branchSelect" class="pt-[8px]">Filialni tanglang</label>--}}
                 <select id="branchSelect"
                         class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
                         required>
-                    <option disabled> @Lang("base.text40")</option>
                     <option value="1" >@lang("base.branches.1.name")</option>
                     @foreach($branches as $branch)
                         <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
                     @endforeach
+
                 </select>
                 <button id="submitButton"
                         class="inter font-bold text-xl w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition opacity-50 cursor-not-allowed"

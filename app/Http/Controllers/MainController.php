@@ -20,6 +20,13 @@ class MainController extends Controller
         return view("landing",compact('videos','branches'));
     }
 
+    public function any()
+    {
+
+        $videos = Video::where('status','active')->get();
+        $branches = Branch::where('status','active')->get();
+        return view("any",compact('videos','branches'));
+    }
     public function contact()
     {
         $catalogs = Catalog::where(['is_active'=>1,'parent_id'=>0])->with('child')->get();
