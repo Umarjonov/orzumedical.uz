@@ -655,7 +655,7 @@
                 <ul>
                     <li class="mb-5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">@Lang("base.services")</a>
+                           href="#">@Lang("base.services2")</a>
                     </li>
                     <li class="mb-2.5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
@@ -685,7 +685,7 @@
                 <ul>
                     <li class="mb-5">
                         <a class="noto-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
-                           href="#">FILIALLAR</a>
+                           href="#">@Lang("base.branch")</a>
                     </li>
                     @foreach($branches as $branch)
                         <li class="mb-2.5">
