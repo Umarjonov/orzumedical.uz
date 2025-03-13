@@ -193,7 +193,7 @@
 
         <div class="relative h-[250px]">
             <div class="mt-8 bg-[#4A9F50] py-4 flex justify-around items-center absolute w-full bottom-0">
-                <a href="#" class="flex items-center space-x-2 text-white hover:opacity-80">
+                <a href="https://t.me/orzu_medical" class="flex items-center space-x-2 text-white hover:opacity-80">
                     <i class="fab fa-telegram-plane text-lg"></i>
                     <span>@Lang('base.telegram')</span>
                 </a>
@@ -412,13 +412,6 @@
     <h2 class="uppercase noto-sans  text-sm font-bold text-[#E7373C] mb-5">
         @Lang("base.branches")
     </h2>
-
-{{--    <div class="flex flex-col lg:flex-row justify-between items-center">--}}
-{{--        <p--}}
-{{--            class="noto-serif font-semibold text-[46px] leading-[62.65px] md:text-4xl max-w-lg text-center lg:text-left">--}}
-{{--            @Lang("base.text24")--}}
-{{--        </p>--}}
-{{--    </div>--}}
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         @foreach($branches as $branch)
             <li class="bg-white p-6 rounded-lg w-full flex flex-col justify-between">
@@ -436,7 +429,8 @@
                                 d="M7.66 10.16C6.28 10.16 5.16 9.04 5.16 7.66C5.16 6.28 6.28 5.16 7.66 5.16C9.04 5.16 10.16 6.28 10.16 7.66C10.16 9.04 9.04 10.16 7.66 10.16ZM8.84 15.91C8.53 16.22 8.1 16.4 7.66 16.4C7.22 16.4 6.8 16.22 6.48 15.91L2.95 12.38C2.02 11.44 1.38 10.26 1.12 8.96C0.87 7.67 1 6.33 1.5 5.11C2.01 3.89 2.86 2.85 3.96 2.12C5.05 1.39 6.34 1 7.66 1C8.98 1 10.27 1.39 11.37 2.12C12.46 2.85 13.32 3.89 13.82 5.11C14.33 6.33 14.46 7.67 14.2 8.96C13.94 10.26 13.31 11.44 12.38 12.38L8.84 15.91Z"
                                 stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
                         </svg>
-                        <p class="inter text-lg font-bold">Kartada ko’rish</p>
+
+                        <p class="inter text-lg font-bold" onclick='setMap("{{$branch->location??"41.2965807, 69.275822"}}")'>Kartada ko’rish</p>
                     </div>
                     <a href='tel:@Lang("base.tel1")'>
                         <i class="fas fa-phone-alt text-[#4A9F50]"></i>
@@ -636,7 +630,16 @@
                 class="mt-[32px] bg-green-600 hover:bg-green-700 text-white px-[70.5px] py-4 rounded-md inter font-bold text-xl">OK</button>
     </div>
 </div>
-
+<!-- Add this modal structure at the end of the body -->
+<div id="mapModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">Yandex Map</h2>
+            <button id="closeModal" class="text-black">&times;</button>
+        </div>
+        <div id="yandexMap" class="w-full h-96"></div>
+    </div>
+</div>
 
 
 
@@ -735,7 +738,47 @@
     </div>
 </footer>
 
+<script src="https://api-maps.yandex.ru/2.1/?apikey=822883d3-3053-47eb-a211-8118591f9d17&lang=ru_RU"
+        type="text/javascript"></script>
+{{--<script src="https://api-maps.yandex.ru/2.1/?lang=en_RU" type="text/javascript"></script>--}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const mapModal = document.getElementById('mapModal');
+        const closeModal = document.getElementById('closeModal');
+        let location = "41.2965807, 69.275822";
+        let map;
+        let placemark;
+        window.setMap = function setMap(newLocation) {
+            mapModal.classList.remove('hidden');
+            location = newLocation;
+            ymaps.ready(init);
+        }
 
+        closeModal.addEventListener('click', function () {
+            mapModal.classList.add('hidden');
+        });
+
+        function init() {
+            const coords = location.split(',').map(Number);
+            if (!map) {
+                map = new ymaps.Map('yandexMap', {
+                    center: coords,
+                    zoom: 10
+                });
+                placemark = new ymaps.Placemark(coords);
+                map.geoObjects.add(placemark);
+            } else {
+                map.setCenter(coords);
+                if (placemark) {
+                    placemark.geometry.setCoordinates(coords);
+                } else {
+                    placemark = new ymaps.Placemark(coords);
+                    map.geoObjects.add(placemark);
+                }
+            }
+        }
+    });
+</script>
 <!-- JavaScript ulanishi -->
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
