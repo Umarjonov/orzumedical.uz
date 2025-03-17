@@ -66,6 +66,10 @@
         body.loading .modal_loading {
             display: block;
         }
+        button.active{
+            background-color: #338038 !important;
+            color: #fff !important;
+        }
     </style>
 </head>
 
@@ -459,17 +463,17 @@
             @Lang("base.text25")
         </p>
         <div class="p-5 flex justify-between rounded-lg bg-[#FFFFFF] mt-10 gap-4">
-            <button class="inter font-bold text-[20px] leading-[24.2px]  hover:bg-[#338038] hover:text-white py-4 rounded-lg w-full  transition">
+            <button id="btn10" class="inter active font-bold text-[20px] leading-[24.2px]  hover:bg-[#338038] hover:text-white py-4 rounded-lg w-full  transition">
                 @Lang("base.text26")
             </button>
-            <button
+            <button id="btnAmbulator"
                 class=" text-black text-[20px] inter font-bold leading-[24.2px] py-4 rounded-lg w-full hover:bg-[#338038] hover:text-white transition">
                 @Lang("base.Ambulator")
             </button>
         </div>
     </div>
 
-    <div class="bg-gray-50 p-8  rounded-lg max-w-7xl mx-auto flex items-center flex-col lg:flex-row gap-10">
+    <div id="tab10" class="bg-gray-50 p-8  rounded-lg max-w-7xl mx-auto flex items-center flex-col lg:flex-row gap-10">
         <!-- Chap qism -->
         <div class="flex-1 space-y-6">
             <img src="{{ asset('uploads/img/dastur icon.svg') }}" alt="Icon logo">
@@ -530,6 +534,63 @@
         </div>
 
     </div>
+    <div id="tabAmbulator" class="hidden bg-gray-50 p-8  rounded-lg max-w-7xl mx-auto flex items-center flex-col lg:flex-row gap-10">
+        <!-- Chap qism -->
+        <div class="flex-1 space-y-6">
+            <h2 class="noto-sans text-[32px] font-bold">@Lang("base.Ambulator")</h2>
+
+            <p class="noto-sans text-lg text-[#091E29] font-medium">
+                @Lang("base.text42")
+            </p>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start space-x-2">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text43")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text44")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text45")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text46")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text47")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text48")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text49")</span>
+                </li>
+                <li class="flex items-start space-x-2 !mt-[21px]">
+                    <img src="{{ asset('uploads/img/galochka.svg') }}" alt="galochka icon">
+                    <span class="noto-sans font-medium text-lg leading-[24.52px] text-[#091E29]">
+                        @Lang("base.text50")</span>
+                </li>
+            </ul>
+            <div class="pt-[60px]">
+                <a href="#aloqa" class=" inter font-bold text-xl leading-[24.2px] bg-green-600 text-white p-[20px] rounded-[10px] hover:bg-green-700 transition">
+                    @Lang("base.enrollment")
+                </a>
+            </div>
+        </div>
+    </div>
 
 
 </div>
@@ -571,10 +632,10 @@
         <div id="formContainer">
             <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
                 <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
-                <input type="text" id="nameInput" placeholder="Ismingiz"
+                <input type="text" id="nameInput" placeholder="@lang('base.ismingiz')"
                        class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
                        required />
-                <input type="text" id="phoneInput" placeholder="Telefon raqamingiz"
+                <input type="text" id="phoneInput" placeholder="@Lang('base.tel_raqamingiz')"
                        class="w-full border rounded-lg p-2  focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
                        required />
 {{--                <label for="branchSelect" class="pt-[8px]">Filialni tanglang</label>--}}
@@ -679,6 +740,10 @@
                     <li>
                         <a class="nano-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
                            href="#">@Lang("base.serv2")</a>
+                    </li>
+                    <li>
+                        <a class="nano-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
+                           href="#">@Lang("base.serv3")</a>
                     </li>
                 </ul>
             </div>

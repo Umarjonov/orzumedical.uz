@@ -125,33 +125,16 @@ okButton.addEventListener("click", function () {
 });
 
 // Muvaffaqiyatli animatsiya funksiyasi
-function showSuccessMessage() {
-  const tl = gsap.timeline();
-  successMessage.classList.remove("hidden");
 
-  tl.to("#circle", {
-    strokeDashoffset: 0,
-    duration: 1,
-  });
-
-  tl.to(
-    "#checkMark",
-    {
-      strokeDashoffset: 0,
-      duration: 0.5,
-    },
-    "-=0.5"
-  );
-
-  tl.to("#successTitle", {
-    opacity: 1,
-    y: -10,
-    duration: 0.5,
-  });
-
-  tl.to("#successText", {
-    opacity: 1,
-    y: -10,
-    duration: 0.5,
-  });
-}
+$("#btn10").click(function(){
+    $(this).addClass("active");
+    $("#btnAmbulator").removeClass("active");
+    $("#tab10").removeClass("hidden");
+    $("#tabAmbulator").addClass("hidden");
+});
+$("#btnAmbulator").click(function(){
+    $(this).addClass("active");
+    $("#btn10").removeClass("active");
+    $("#tabAmbulator").removeClass("hidden");
+    $("#tab10").addClass("hidden");
+});
