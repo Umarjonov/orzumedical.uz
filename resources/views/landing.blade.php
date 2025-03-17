@@ -233,22 +233,12 @@
 <!-- About -->
 <section class="max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-between mt-[19px] pb-[100px] px-4">
     <!-- Left Side (Mobileda tepada)-->
-    <div
-        class="relative bg-[#4A9E89] mt-10 w-full w-[328px] md:w-[497px] h-[295.27px] md:h-[447px] rounded-[20px] overflow-visible mb-12">
+{{--    <div--}}
+{{--        class="relative mt-10 w-full w-[328px] md:w-[497px] h-[295.27px] md:h-[447px] rounded-[20px] overflow-visible mb-12">--}}
         <!-- Odam rasmi no-bg -->
-        <img src="{{ asset('uploads/img/odam.png')}}" alt="Odam rasmi"
-             class="absolute bottom-0 left-[20px] w-full h-[317.2px] md:h-[480px] object-contain rounded-[20px]">
-
-        <!-- Bemorlar Highlight)) -->
-        <div
-            class="absolute -bottom-5 left-[25%] lg:-left-[50px] h-fit lg:top-[100px] flex items-center bg-white rounded-[10px] p-2 shadow-lg">
-            <!-- Yarim chiqib turuvchi rasm -->
-            <img src="{{ asset('uploads/img/miyya.png')}}" alt="Ikon" class="w-[29px] h-[31px] object-contain ml-2">
-
-            <!-- Yozuv -->
-            <span class="text-gray-700 text-[14px] ml-4 max-w-[110px]">@lang('base.more_than')</span>
-        </div>
-    </div>
+        <img src="{{ asset('uploads/img/rasm1.jpg')}}" alt="Odam rasmi"
+             class="relative mt-10 w-full w-[328px] md:w-[497px] h-[270px] md:h-[250px] rounded-[20px] overflow-visible mb-12">
+{{--    </div>--}}
 
     <!-- Right Side Text -->
     <div class="w-full lg:w-[544px]">
@@ -273,7 +263,7 @@
         </h1>
 
         <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-[150px]">
-            <img class="w-full max-w-[386px] h-auto mb-6 lg:mb-0 hidden md:block" src="{{ asset('uploads/img/orzu-Medical_1.png')}}"
+            <img class="w-full max-w-[386px] h-auto mb-6 lg:mb-0 hidden md:block rounded-[20px]" src="{{ asset('uploads/img/rasm2.jpg')}}"
                  alt="Orzu medical humans" />
 
             <section class="w-full">
@@ -336,7 +326,7 @@
                 </div>
             </section>
 
-            <img class="w-full max-w-[386px] h-auto hidden md:block" src="{{ asset('uploads/img/orzu-Medical_2.png')}}"
+            <img class="w-full max-w-[386px] h-auto hidden md:block rounded-[20px]" src="{{ asset('uploads/img/rasm3.jpg')}}"
                  alt="Orzu medical 2" />
         </div>
     </div>
