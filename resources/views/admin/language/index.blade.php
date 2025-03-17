@@ -37,7 +37,7 @@
             <div class="col">
                 <div class="card">
                     <div class="table-responsive py-4 px-2">
-                        <table class="table table-flush w-100" id="example">
+                        <table class="table table-flush w-100 text-wrap" id="example">
                             <thead class="thead-light">
                             <tr>
                                 <th>@lang('cruds.user.fields.id')</th>
@@ -65,9 +65,9 @@
                                     <td>{{ $lang->uz }}</td>
                                     <td>{{ $lang->ru }}</td>
                                     <td class="text-center">
-                                        <form action="{{ route('languages.destroy',$lang->id) }}" method="post" id="deleteForm{{$lang->id}}">
-                                            @csrf
-                                            @method('DELETE')
+{{--                                        <form action="{{ route('languages.destroy',$lang->id) }}" method="post" id="deleteForm{{$lang->id}}">--}}
+{{--                                            @csrf--}}
+{{--                                            @method('DELETE')--}}
                                             <div class="btn-group">
                                                 @can('language.edit')
                                                     <a href="#" class="table-action"
@@ -76,14 +76,14 @@
                                                         <i class="fas fa-edit pr-1"> </i>
                                                     </a>
                                                 @endcan
-                                                @can('language.destroy')
-                                                    <a href="#" class="table-action table-action-delete" data-toggle="tooltip"
-                                                       data-original-title="Delete role" onclick="if (confirm('Вы уверены?')) { document.getElementById('deleteForm'+{{$lang->id}}).submit() } ">
-                                                        <i class="fas fa-trash"> </i>
-                                                    </a>
-                                                @endcan
+{{--                                                @can('language.destroy')--}}
+{{--                                                    <a href="#" class="table-action table-action-delete" data-toggle="tooltip"--}}
+{{--                                                       data-original-title="Delete role" onclick="if (confirm('Вы уверены?')) { document.getElementById('deleteForm'+{{$lang->id}}).submit() } ">--}}
+{{--                                                        <i class="fas fa-trash"> </i>--}}
+{{--                                                    </a>--}}
+{{--                                                @endcan--}}
                                             </div>
-                                        </form>
+{{--                                        </form>--}}
                                     </td>
                                 </tr>
                             @endforeach

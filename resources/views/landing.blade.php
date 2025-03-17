@@ -737,7 +737,7 @@
                         <a class="nano-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
                            href="#">@Lang("base.Maslaxatlar")</a>
                     </li>
-                    <li>
+                    <li class="mb-2.5">
                         <a class="nano-sans font-medium text-lg leading-6 text-white hover:text-[#ABE09C] transition-colors duration-300"
                            href="#">@Lang("base.serv2")</a>
                     </li>
