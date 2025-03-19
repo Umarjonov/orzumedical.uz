@@ -689,7 +689,7 @@
     </div>
 </div>
 <!-- Add this modal structure at the end of the body -->
-<div id="mapModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+<div id="mapModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-bold">Yandex Map</h2>
@@ -815,7 +815,11 @@
             location = newLocation;
             ymaps.ready(init);
         }
-
+        mapModal.addEventListener('click', function (event) {
+            if (event.target === mapModal) {
+                mapModal.classList.add('hidden');
+            }
+        });
         closeModal.addEventListener('click', function () {
             mapModal.classList.add('hidden');
         });
