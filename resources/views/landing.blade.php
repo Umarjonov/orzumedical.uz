@@ -152,7 +152,7 @@
                 </a>
 
                 <!-- Menu bo'limlari -->
-                <div class="w-full flex gap-[80px]">
+                <div class="w-full flex gap-[8px]">
                     <ul class="flex items-center space-x-[25px] text-nowrap ml-[60px]">
                         <li><a href="#orzu-medical" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.orzu_medical")</a></li>
                         <li><a href="#about" class="text-black hover:text-[#4A9F50] text-base scroll-link">@Lang("base.our_us")</a>
