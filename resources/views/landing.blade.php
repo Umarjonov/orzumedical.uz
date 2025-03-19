@@ -167,10 +167,14 @@
                     <!-- Telefon raqami va Button -->
                     <div class="flex items-center space-x-[40px] ml-auto">
                         <!-- Telefon -->
-                        <div class="flex items-center space-x-2 text-nowrap">
+                        <div class="flex flex-col items-left">
                             <a href='tel:@Lang("base.tel1")'>
                                 <i class="fas fa-phone-alt text-black"></i>
                                 <span class=" text-lg text-black">@Lang("base.tel1")</span>
+                            </a>
+                            <a href='tel:@Lang("base.tel3")'>
+                                <i class="fas fa-phone-alt text-black"></i>
+                                <span class=" text-lg text-black">@Lang("base.tel3")</span>
                             </a>
                         </div>
 
@@ -250,6 +254,9 @@
         </p>
         <p class="nano-sans text-sm sm:text-base text-black leading-[22px] sm:leading-[24px]">
             @Lang('base.text4')
+        </p>
+        <p class="nano-sans text-[18px] font-bold text-black leading-[22px] sm:leading-[24px]">
+            @Lang('base.text51')
         </p>
     </div>
 </section>
@@ -424,7 +431,7 @@
                                 stroke="#4A9F50" stroke-width="2" stroke-linejoin="round" />
                         </svg>
 
-                        <p class="inter text-lg font-bold" onclick='setMap("{{$branch->location??"41.2965807, 69.275822"}}")'>Kartada ko’rish</p>
+                        <p class="inter text-lg font-bold" onclick='setMap("{{$branch->location??"41.2965807, 69.275822"}}")'>@Lang("base.show_map")</p>
                     </div>
                     <a href='tel:@Lang("base.tel1")'>
                         <i class="fas fa-phone-alt text-[#4A9F50]"></i>
@@ -470,7 +477,7 @@
 
             <h2 class="noto-sans text-[32px] font-bold">@Lang("base.text26")</h2>
 
-            <p class="noto-sans text-lg text-[#091E29] font-medium">
+            <p class="noto-sans text-lg text-[#091E29] font-bold ">
                 @Lang("base.text27")
             </p>
             <ul class="space-y-3 text-gray-700">
@@ -529,7 +536,7 @@
         <div class="flex-1 space-y-6">
             <h2 class="noto-sans text-[32px] font-bold">@Lang("base.Ambulator")</h2>
 
-            <p class="noto-sans text-lg text-[#091E29] font-medium">
+            <p class="noto-sans text-lg text-[#091E29] font-bold">
                 @Lang("base.text42")
             </p>
             <ul class="space-y-3 text-gray-700">
