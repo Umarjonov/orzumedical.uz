@@ -97,7 +97,7 @@
                 <!-- Button -->
                 <a href="#aloqa"
                    class="lg:hidden w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg">
-                    <i class="fas fa-solid fa-book  text-black text-lg"></i>
+                    <i class="fas fa-solid fa-address-card  text-black text-lg"></i>
                 </a>
             </div>
         </div>
@@ -411,61 +411,93 @@
     </section>
 </div>
 
-<!-- Aloqa Formasi -->
-{{-- div in mobile versia hidden--}}
+<!-- ------------------Biz Haqimizda end ------------------------ -->
 
-<div id="formContainer2" class="block sm:hidden p-6">
-    <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
-        <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
-        <input type="text" id="nameInput" placeholder="@lang('base.ismingiz')"
-               class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
-               required />
-        <input type="text" id="phoneInput" placeholder="@Lang('base.tel_raqamingiz')"
-               class="w-full border rounded-lg p-2  focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
-               required />
-        {{--                <label for="branchSelect" class="pt-[8px]">Filialni tanglang</label>--}}
-        <select id="branchSelect"
-                class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
-                required>
-            <option disabled> @Lang("base.text40")</option>
-            <option value="1" >@lang("base.branches.1.name")</option>
-            @foreach($branches as $branch)
-                <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
-            @endforeach
-        </select>
-        <button id="submitButton"
-                class="inter font-bold text-xl w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition opacity-50 cursor-not-allowed"
-                disabled>
-            @Lang('base.send')
-        </button>
-    </div>
-
-    <!-- Muvaffaqiyatli yozuv -->
-    <div id="successMessage" class="hidden bg-white p-[32px] rounded-2xl shadow-md max-w-[469px] w-full">
-        <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500 mb-[20px]" width="100" height="100"
-             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-             stroke-linejoin="round">
-            <!-- Galochka -->
-            <path d="M9 12l2 2 4-4" id="checkMark" style="stroke-dasharray: 15; stroke-dashoffset: 15;">
-            </path>
-            <!-- Aylana -->
-            <circle cx="12" cy="12" r="10" id="circle" style="stroke-dasharray: 63; stroke-dashoffset: 63;">
-            </circle>
-        </svg>
-        <div>
-            <h3 class="noto-sans text-[28px] leading-[38.14px] font-bold opacity-0 tracking-wide"
-                id="successTitle">
-                @Lang("base.text36")
-            </h3>
-            <p class="mt-2 mb-[24px] noto-sans  text-xl leading-[27.24px] opacity-0" id="successText">
-                @Lang("base.text37")
+<!-- Aloqa section -->
+<div id="aloqa" class="max-w-7xl mx-auto items-center pb-[100px] p-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Chap Info  -->
+        <div class="space-y-6">
+            <p class="noto-sans text-[#E7373C] font-bold uppercase mb-[20px]">@Lang("base.contact")</p>
+            <h2 class="noto-serif text-3xl font-semibold leading-snug mb-[44px]">
+                @Lang("base.text34")
+            </h2>
+            <p class="noto-sans text-xl text-[#000000]">
+                @Lang("base.text35")
             </p>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3 ">
+                    <div class="bg-green-600 text-green-600 py-[8px] px-[6px] rounded-full">
+                        <img class="w-[13px] h-[11px]" src="{{ asset('uploads/img/gmail-Photoroom.svg') }}" alt="gmail logo">
+                    </div>
+                    <span class="noto-sans text-xl">@Lang("base.email")</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="bg-green-600 text-green-600 p-2 rounded-full">
+                        <img src="{{ asset('uploads/img/phone.svg') }}" alt="phone logo">
+                    </div>
+                    <div class="space-y-1">
+                        <p class="noto-sans text-xl">@Lang("base.tel1")</p>
+                        <p class="noto-sans text-xl">@Lang("base.tel2")</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aloqa Formasi -->
+        <div id="formContainer" class="hide-on-mobile">
+            <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
+                <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
+                <input type="text" id="nameInput" placeholder="@lang('base.ismingiz')"
+                       class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
+                       required />
+                <input type="text" id="phoneInput" placeholder="@Lang('base.tel_raqamingiz')"
+                       class="w-full border rounded-lg p-2  focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
+                       required />
+                {{--                <label for="branchSelect" class="pt-[8px]">Filialni tanglang</label>--}}
+                <select id="branchSelect"
+                        class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
+                        required>
+                    <option disabled> @Lang("base.text40")</option>
+                    <option value="1" >@lang("base.branches.1.name")</option>
+                    @foreach($branches as $branch)
+                        <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
+                    @endforeach
+                </select>
+                <button id="submitButton"
+                        class="inter font-bold text-xl w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition opacity-50 cursor-not-allowed"
+                        disabled>
+                    @Lang('base.send')
+                </button>
+            </div>
+
+            <!-- Muvaffaqiyatli yozuv -->
+            <div id="successMessage" class="hidden bg-white p-[32px] rounded-2xl shadow-md max-w-[469px] w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500 mb-[20px]" width="100" height="100"
+                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <!-- Galochka -->
+                    <path d="M9 12l2 2 4-4" id="checkMark" style="stroke-dasharray: 15; stroke-dashoffset: 15;">
+                    </path>
+                    <!-- Aylana -->
+                    <circle cx="12" cy="12" r="10" id="circle" style="stroke-dasharray: 63; stroke-dashoffset: 63;">
+                    </circle>
+                </svg>
+                <div>
+                    <h3 class="noto-sans text-[28px] leading-[38.14px] font-bold opacity-0 tracking-wide"
+                        id="successTitle">
+                        @Lang("base.text36")
+                    </h3>
+                    <p class="mt-2 mb-[24px] noto-sans  text-xl leading-[27.24px] opacity-0" id="successText">
+                        @Lang("base.text37")
+                    </p>
+                </div>
+            </div>
+
+
         </div>
     </div>
-
-
 </div>
-<!-- ------------------Biz Haqimizda end ------------------------ -->
 
 <!-- ------------------ Filiallarimiz start ------------------------ -->
 
@@ -653,92 +685,6 @@
 </div>
 
 <!-- ------------------ Xizmatlarimiz end ------------------------ -->
-
-<!-- Aloqa section -->
-<div id="aloqa" class="max-w-7xl mx-auto items-center pb-[100px] p-6">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <!-- Chap Info  -->
-        <div class="space-y-6">
-            <p class="noto-sans text-[#E7373C] font-bold uppercase mb-[20px]">@Lang("base.contact")</p>
-            <h2 class="noto-serif text-3xl font-semibold leading-snug mb-[44px]">
-                @Lang("base.text34")
-            </h2>
-            <p class="noto-sans text-xl text-[#000000]">
-                @Lang("base.text35")
-            </p>
-            <div class="space-y-4">
-                <div class="flex items-center space-x-3 ">
-                    <div class="bg-green-600 text-green-600 py-[8px] px-[6px] rounded-full">
-                        <img class="w-[13px] h-[11px]" src="{{ asset('uploads/img/gmail-Photoroom.svg') }}" alt="gmail logo">
-                    </div>
-                    <span class="noto-sans text-xl">@Lang("base.email")</span>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <div class="bg-green-600 text-green-600 p-2 rounded-full">
-                        <img src="{{ asset('uploads/img/phone.svg') }}" alt="phone logo">
-                    </div>
-                    <div class="space-y-1">
-                        <p class="noto-sans text-xl">@Lang("base.tel1")</p>
-                        <p class="noto-sans text-xl">@Lang("base.tel2")</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Aloqa Formasi -->
-        <div id="formContainer" class="hide-on-mobile">
-            <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
-                <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
-                <input type="text" id="nameInput" placeholder="@lang('base.ismingiz')"
-                       class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
-                       required />
-                <input type="text" id="phoneInput" placeholder="@Lang('base.tel_raqamingiz')"
-                       class="w-full border rounded-lg p-2  focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
-                       required />
-{{--                <label for="branchSelect" class="pt-[8px]">Filialni tanglang</label>--}}
-                <select id="branchSelect"
-                        class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
-                        required>
-                    <option disabled> @Lang("base.text40")</option>
-                    <option value="1" >@lang("base.branches.1.name")</option>
-                    @foreach($branches as $branch)
-                        <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
-                    @endforeach
-                </select>
-                <button id="submitButton"
-                        class="inter font-bold text-xl w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition opacity-50 cursor-not-allowed"
-                        disabled>
-                    @Lang('base.send')
-                </button>
-            </div>
-
-            <!-- Muvaffaqiyatli yozuv -->
-            <div id="successMessage" class="hidden bg-white p-[32px] rounded-2xl shadow-md max-w-[469px] w-full">
-                <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500 mb-[20px]" width="100" height="100"
-                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                     stroke-linejoin="round">
-                    <!-- Galochka -->
-                    <path d="M9 12l2 2 4-4" id="checkMark" style="stroke-dasharray: 15; stroke-dashoffset: 15;">
-                    </path>
-                    <!-- Aylana -->
-                    <circle cx="12" cy="12" r="10" id="circle" style="stroke-dasharray: 63; stroke-dashoffset: 63;">
-                    </circle>
-                </svg>
-                <div>
-                    <h3 class="noto-sans text-[28px] leading-[38.14px] font-bold opacity-0 tracking-wide"
-                        id="successTitle">
-                        @Lang("base.text36")
-                    </h3>
-                    <p class="mt-2 mb-[24px] noto-sans  text-xl leading-[27.24px] opacity-0" id="successText">
-                        @Lang("base.text37")
-                    </p>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-</div>
 
 <!-- Modal oynacha -->
 <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
