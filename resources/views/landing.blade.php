@@ -88,12 +88,18 @@
             <a href="#" class="flex items-center justify-center">
                 <img src="{{ asset('uploads/img/logo-nav.svg') }}" alt="Orzu Medical Logo" class="w-[120px]" />
             </a>
-
-            <!-- Right Side: Mobile Phone Button -->
-            <a href='tel:@Lang("base.tel1")'
-               class="lg:hidden w-10 h-10 flex items-center justify-center bg-[#4A9F50] rounded-lg">
-                <i class="fas fa-phone-alt text-white"></i>
-            </a>
+            <div class="gap-2 flex">
+                <!-- Right Side: Mobile Phone Button -->
+                <a href='tel:@Lang("base.tel1")'
+                   class="lg:hidden w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg">
+                    <i class="fas fa-phone-alt text-black text-lg"></i>
+                </a>
+                <!-- Button -->
+                <a href="#aloqa"
+                   class="lg:hidden w-10 h-10 flex items-center justify-center bg-gray-100 rounded-lg">
+                    <i class="fas fa-solid fa-book  text-black text-lg"></i>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -405,6 +411,60 @@
     </section>
 </div>
 
+<!-- Aloqa Formasi -->
+{{-- div in mobile versia hidden--}}
+
+<div id="formContainer2" class="block sm:hidden p-6">
+    <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
+        <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
+        <input type="text" id="nameInput" placeholder="@lang('base.ismingiz')"
+               class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
+               required />
+        <input type="text" id="phoneInput" placeholder="@Lang('base.tel_raqamingiz')"
+               class="w-full border rounded-lg p-2  focus:outline-none focus:ring-2 focus:ring-green-500 placeholder:inter placeholder:text-lg placeholder:font-medium placeholder:text-[#979797]"
+               required />
+        {{--                <label for="branchSelect" class="pt-[8px]">Filialni tanglang</label>--}}
+        <select id="branchSelect"
+                class="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-green-500 option:inter option:text-lg option:font-medium"
+                required>
+            <option disabled> @Lang("base.text40")</option>
+            <option value="1" >@lang("base.branches.1.name")</option>
+            @foreach($branches as $branch)
+                <option value="{{$branch->id}}" >@lang("base.branches.$branch->id.name")</option>
+            @endforeach
+        </select>
+        <button id="submitButton"
+                class="inter font-bold text-xl w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition opacity-50 cursor-not-allowed"
+                disabled>
+            @Lang('base.send')
+        </button>
+    </div>
+
+    <!-- Muvaffaqiyatli yozuv -->
+    <div id="successMessage" class="hidden bg-white p-[32px] rounded-2xl shadow-md max-w-[469px] w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" class="text-green-500 mb-[20px]" width="100" height="100"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round">
+            <!-- Galochka -->
+            <path d="M9 12l2 2 4-4" id="checkMark" style="stroke-dasharray: 15; stroke-dashoffset: 15;">
+            </path>
+            <!-- Aylana -->
+            <circle cx="12" cy="12" r="10" id="circle" style="stroke-dasharray: 63; stroke-dashoffset: 63;">
+            </circle>
+        </svg>
+        <div>
+            <h3 class="noto-sans text-[28px] leading-[38.14px] font-bold opacity-0 tracking-wide"
+                id="successTitle">
+                @Lang("base.text36")
+            </h3>
+            <p class="mt-2 mb-[24px] noto-sans  text-xl leading-[27.24px] opacity-0" id="successText">
+                @Lang("base.text37")
+            </p>
+        </div>
+    </div>
+
+
+</div>
 <!-- ------------------Biz Haqimizda end ------------------------ -->
 
 <!-- ------------------ Filiallarimiz start ------------------------ -->
@@ -626,7 +686,7 @@
         </div>
 
         <!-- Aloqa Formasi -->
-        <div id="formContainer">
+        <div id="formContainer" class="hide-on-mobile">
             <div class="bg-white p-6 rounded-2xl shadow-md space-y-4" id="contactForm">
                 <h3 class="noto-sans font-semibold font-semibold text-[24px]">@Lang("base.enrollment")</h3>
                 <input type="text" id="nameInput" placeholder="@lang('base.ismingiz')"
